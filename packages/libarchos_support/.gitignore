@@ -1,0 +1,5 @@
+libarchos_support.conf
+src/Makefile
+src/libarchos_support.so*
+src/.obj
+src/libarchos_support.pro

@@ -1,0 +1,483 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="poppler-poppler-page">
+<refmeta>
+<refentrytitle>PopplerPage</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>POPPLER Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>PopplerPage</refname><refpurpose>Information about a page in a document</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="void">void</link>        <link linkend="poppler-page-render-to-pixbuf">poppler_page_render_to_pixbuf</link>   (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="int">int</link> src_x,
+                                             <link linkend="int">int</link> src_y,
+                                             <link linkend="int">int</link> src_width,
+                                             <link linkend="int">int</link> src_height,
+                                             <link linkend="double">double</link> scale,
+                                             <link linkend="int">int</link> rotation,
+                                             <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf);
+<link linkend="void">void</link>        <link linkend="poppler-page-get-size">poppler_page_get_size</link>           (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="double">double</link> *width,
+                                             <link linkend="double">double</link> *height);
+<link linkend="int">int</link>         <link linkend="poppler-page-get-index">poppler_page_get_index</link>          (<link linkend="PopplerPage">PopplerPage</link> *page);
+<link linkend="GdkPixbuf">GdkPixbuf</link>*  <link linkend="poppler-page-get-thumbnail">poppler_page_get_thumbnail</link>      (<link linkend="PopplerPage">PopplerPage</link> *page);
+<link linkend="gboolean">gboolean</link>    <link linkend="poppler-page-get-thumbnail-size">poppler_page_get_thumbnail_size</link> (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="int">int</link> *width,
+                                             <link linkend="int">int</link> *height);
+<link linkend="GList">GList</link>*      <link linkend="poppler-page-find-text">poppler_page_find_text</link>          (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             const  <link linkend="char">char</link> *text);
+<link linkend="void">void</link>        <link linkend="poppler-page-render-to-ps">poppler_page_render_to_ps</link>       (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="PopplerPSFile">PopplerPSFile</link> *ps_file);
+<link linkend="char">char</link>*       <link linkend="poppler-page-get-text">poppler_page_get_text</link>           (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="PopplerRectangle">PopplerRectangle</link> *rect);
+<link linkend="GList">GList</link>*      <link linkend="poppler-page-get-link-mapping">poppler_page_get_link_mapping</link>   (<link linkend="PopplerPage">PopplerPage</link> *page);
+<link linkend="void">void</link>        <link linkend="poppler-page-free-link-mapping">poppler_page_free_link_mapping</link>  (<link linkend="GList">GList</link> *list);
+<link linkend="GdkRegion">GdkRegion</link>*  <link linkend="poppler-page-get-selection-region">poppler_page_get_selection_region</link>
+                                            (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="gdouble">gdouble</link> scale,
+                                             <link linkend="PopplerRectangle">PopplerRectangle</link> *selection);
+<link linkend="void">void</link>        <link linkend="poppler-page-render-selection">poppler_page_render_selection</link>   (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="gdouble">gdouble</link> scale,
+                                             <link linkend="int">int</link> rotation,
+                                             <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf,
+                                             <link linkend="PopplerRectangle">PopplerRectangle</link> *selection,
+                                             <link linkend="PopplerRectangle">PopplerRectangle</link> *old_selection,
+                                             <link linkend="GdkColor">GdkColor</link> *glyph_color,
+                                             <link linkend="GdkColor">GdkColor</link> *background_color);
+#define     <link linkend="POPPLER-TYPE-RECTANGLE:CAPS">POPPLER_TYPE_RECTANGLE</link>
+            <link linkend="PopplerRectangle">PopplerRectangle</link>;
+<link linkend="GType">GType</link>       <link linkend="poppler-rectangle-get-type">poppler_rectangle_get_type</link>      (void);
+<link linkend="PopplerRectangle">PopplerRectangle</link>* <link linkend="poppler-rectangle-new">poppler_rectangle_new</link>     (void);
+<link linkend="PopplerRectangle">PopplerRectangle</link>* <link linkend="poppler-rectangle-copy">poppler_rectangle_copy</link>    (<link linkend="PopplerRectangle">PopplerRectangle</link> *rectangle);
+<link linkend="void">void</link>        <link linkend="poppler-rectangle-free">poppler_rectangle_free</link>          (<link linkend="PopplerRectangle">PopplerRectangle</link> *rectangle);
+#define     <link linkend="POPPLER-TYPE-LINK-MAPPING:CAPS">POPPLER_TYPE_LINK_MAPPING</link>
+            <link linkend="PopplerLinkMapping">PopplerLinkMapping</link>;
+<link linkend="GType">GType</link>       <link linkend="poppler-link-mapping-get-type">poppler_link_mapping_get_type</link>   (void);
+<link linkend="PopplerLinkMapping">PopplerLinkMapping</link>* <link linkend="poppler-link-mapping-new">poppler_link_mapping_new</link>
+                                            (void);
+<link linkend="PopplerLinkMapping">PopplerLinkMapping</link>* <link linkend="poppler-link-mapping-copy">poppler_link_mapping_copy</link>
+                                            (<link linkend="PopplerLinkMapping">PopplerLinkMapping</link> *mapping);
+<link linkend="void">void</link>        <link linkend="poppler-link-mapping-free">poppler_link_mapping_free</link>       (<link linkend="PopplerLinkMapping">PopplerLinkMapping</link> *mapping);
+
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="poppler-page-render-to-pixbuf"/>poppler_page_render_to_pixbuf ()</title>
+<indexterm><primary>poppler_page_render_to_pixbuf</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_page_render_to_pixbuf   (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="int">int</link> src_x,
+                                             <link linkend="int">int</link> src_y,
+                                             <link linkend="int">int</link> src_width,
+                                             <link linkend="int">int</link> src_height,
+                                             <link linkend="double">double</link> scale,
+                                             <link linkend="int">int</link> rotation,
+                                             <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>src_x</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>src_y</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>src_width</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>src_height</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>scale</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>rotation</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pixbuf</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-page-get-size"/>poppler_page_get_size ()</title>
+<indexterm><primary>poppler_page_get_size</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_page_get_size           (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="double">double</link> *width,
+                                             <link linkend="double">double</link> *height);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-page-get-index"/>poppler_page_get_index ()</title>
+<indexterm><primary>poppler_page_get_index</primary></indexterm><programlisting><link linkend="int">int</link>         poppler_page_get_index          (<link linkend="PopplerPage">PopplerPage</link> *page);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-page-get-thumbnail"/>poppler_page_get_thumbnail ()</title>
+<indexterm><primary>poppler_page_get_thumbnail</primary></indexterm><programlisting><link linkend="GdkPixbuf">GdkPixbuf</link>*  poppler_page_get_thumbnail      (<link linkend="PopplerPage">PopplerPage</link> *page);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-page-get-thumbnail-size"/>poppler_page_get_thumbnail_size ()</title>
+<indexterm><primary>poppler_page_get_thumbnail_size</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    poppler_page_get_thumbnail_size (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="int">int</link> *width,
+                                             <link linkend="int">int</link> *height);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-page-find-text"/>poppler_page_find_text ()</title>
+<indexterm><primary>poppler_page_find_text</primary></indexterm><programlisting><link linkend="GList">GList</link>*      poppler_page_find_text          (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             const  <link linkend="char">char</link> *text);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-page-render-to-ps"/>poppler_page_render_to_ps ()</title>
+<indexterm><primary>poppler_page_render_to_ps</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_page_render_to_ps       (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="PopplerPSFile">PopplerPSFile</link> *ps_file);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>ps_file</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-page-get-text"/>poppler_page_get_text ()</title>
+<indexterm><primary>poppler_page_get_text</primary></indexterm><programlisting><link linkend="char">char</link>*       poppler_page_get_text           (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="PopplerRectangle">PopplerRectangle</link> *rect);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>rect</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-page-get-link-mapping"/>poppler_page_get_link_mapping ()</title>
+<indexterm><primary>poppler_page_get_link_mapping</primary></indexterm><programlisting><link linkend="GList">GList</link>*      poppler_page_get_link_mapping   (<link linkend="PopplerPage">PopplerPage</link> *page);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-page-free-link-mapping"/>poppler_page_free_link_mapping ()</title>
+<indexterm><primary>poppler_page_free_link_mapping</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_page_free_link_mapping  (<link linkend="GList">GList</link> *list);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-page-get-selection-region"/>poppler_page_get_selection_region ()</title>
+<indexterm><primary>poppler_page_get_selection_region</primary></indexterm><programlisting><link linkend="GdkRegion">GdkRegion</link>*  poppler_page_get_selection_region
+                                            (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="gdouble">gdouble</link> scale,
+                                             <link linkend="PopplerRectangle">PopplerRectangle</link> *selection);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>scale</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>selection</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-page-render-selection"/>poppler_page_render_selection ()</title>
+<indexterm><primary>poppler_page_render_selection</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_page_render_selection   (<link linkend="PopplerPage">PopplerPage</link> *page,
+                                             <link linkend="gdouble">gdouble</link> scale,
+                                             <link linkend="int">int</link> rotation,
+                                             <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf,
+                                             <link linkend="PopplerRectangle">PopplerRectangle</link> *selection,
+                                             <link linkend="PopplerRectangle">PopplerRectangle</link> *old_selection,
+                                             <link linkend="GdkColor">GdkColor</link> *glyph_color,
+                                             <link linkend="GdkColor">GdkColor</link> *background_color);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>scale</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>rotation</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pixbuf</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>selection</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>old_selection</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>glyph_color</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>background_color</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="POPPLER-TYPE-RECTANGLE:CAPS"/>POPPLER_TYPE_RECTANGLE</title>
+<indexterm><primary>POPPLER_TYPE_RECTANGLE</primary></indexterm><programlisting>#define POPPLER_TYPE_RECTANGLE             (poppler_rectangle_get_type ())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="PopplerRectangle"/>PopplerRectangle</title>
+<indexterm><primary>PopplerRectangle</primary></indexterm><programlisting>typedef struct {
+  gdouble x1;
+  gdouble y1;
+  gdouble x2;
+  gdouble y2;
+} PopplerRectangle;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="poppler-rectangle-get-type"/>poppler_rectangle_get_type ()</title>
+<indexterm><primary>poppler_rectangle_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>       poppler_rectangle_get_type      (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-rectangle-new"/>poppler_rectangle_new ()</title>
+<indexterm><primary>poppler_rectangle_new</primary></indexterm><programlisting><link linkend="PopplerRectangle">PopplerRectangle</link>* poppler_rectangle_new     (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-rectangle-copy"/>poppler_rectangle_copy ()</title>
+<indexterm><primary>poppler_rectangle_copy</primary></indexterm><programlisting><link linkend="PopplerRectangle">PopplerRectangle</link>* poppler_rectangle_copy    (<link linkend="PopplerRectangle">PopplerRectangle</link> *rectangle);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>rectangle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-rectangle-free"/>poppler_rectangle_free ()</title>
+<indexterm><primary>poppler_rectangle_free</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_rectangle_free          (<link linkend="PopplerRectangle">PopplerRectangle</link> *rectangle);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>rectangle</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="POPPLER-TYPE-LINK-MAPPING:CAPS"/>POPPLER_TYPE_LINK_MAPPING</title>
+<indexterm><primary>POPPLER_TYPE_LINK_MAPPING</primary></indexterm><programlisting>#define POPPLER_TYPE_LINK_MAPPING             (poppler_link_mapping_get_type ())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="PopplerLinkMapping"/>PopplerLinkMapping</title>
+<indexterm><primary>PopplerLinkMapping</primary></indexterm><programlisting>typedef struct {
+  PopplerRectangle area;
+  PopplerAction *action;
+} PopplerLinkMapping;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="poppler-link-mapping-get-type"/>poppler_link_mapping_get_type ()</title>
+<indexterm><primary>poppler_link_mapping_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>       poppler_link_mapping_get_type   (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-link-mapping-new"/>poppler_link_mapping_new ()</title>
+<indexterm><primary>poppler_link_mapping_new</primary></indexterm><programlisting><link linkend="PopplerLinkMapping">PopplerLinkMapping</link>* poppler_link_mapping_new
+                                            (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-link-mapping-copy"/>poppler_link_mapping_copy ()</title>
+<indexterm><primary>poppler_link_mapping_copy</primary></indexterm><programlisting><link linkend="PopplerLinkMapping">PopplerLinkMapping</link>* poppler_link_mapping_copy
+                                            (<link linkend="PopplerLinkMapping">PopplerLinkMapping</link> *mapping);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>mapping</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-link-mapping-free"/>poppler_link_mapping_free ()</title>
+<indexterm><primary>poppler_link_mapping_free</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_link_mapping_free       (<link linkend="PopplerLinkMapping">PopplerLinkMapping</link> *mapping);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>mapping</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,629 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="poppler-poppler-document">
+<refmeta>
+<refentrytitle>PopplerDocument</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>POPPLER Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>PopplerDocument</refname><refpurpose>Information about a document</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+enum        <link linkend="PopplerPageLayout">PopplerPageLayout</link>;
+enum        <link linkend="PopplerPageMode">PopplerPageMode</link>;
+enum        <link linkend="PopplerFontType">PopplerFontType</link>;
+enum        <link linkend="PopplerViewerPreferences">PopplerViewerPreferences</link>;
+enum        <link linkend="PopplerPermissions">PopplerPermissions</link>;
+<link linkend="PopplerDocument">PopplerDocument</link>* <link linkend="poppler-document-new-from-file">poppler_document_new_from_file</link>
+                                            (const <link linkend="char">char</link> *uri,
+                                             const <link linkend="char">char</link> *password,
+                                             <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>    <link linkend="poppler-document-save">poppler_document_save</link>           (<link linkend="PopplerDocument">PopplerDocument</link> *document,
+                                             const <link linkend="char">char</link> *uri,
+                                             <link linkend="GError">GError</link> **error);
+<link linkend="int">int</link>         <link linkend="poppler-document-get-n-pages">poppler_document_get_n_pages</link>    (<link linkend="PopplerDocument">PopplerDocument</link> *document);
+<link linkend="PopplerPage">PopplerPage</link>* <link linkend="poppler-document-get-page">poppler_document_get_page</link>      (<link linkend="PopplerDocument">PopplerDocument</link> *document,
+                                             <link linkend="int">int</link> index);
+<link linkend="PopplerPage">PopplerPage</link>* <link linkend="poppler-document-get-page-by-label">poppler_document_get_page_by_label</link>
+                                            (<link linkend="PopplerDocument">PopplerDocument</link> *document,
+                                             const <link linkend="char">char</link> *label);
+<link linkend="GType">GType</link>       <link linkend="poppler-index-iter-get-type">poppler_index_iter_get_type</link>     (void);
+<link linkend="PopplerIndexIter">PopplerIndexIter</link>* <link linkend="poppler-index-iter-new">poppler_index_iter_new</link>    (<link linkend="PopplerDocument">PopplerDocument</link> *document);
+<link linkend="PopplerIndexIter">PopplerIndexIter</link>* <link linkend="poppler-index-iter-copy">poppler_index_iter_copy</link>   (<link linkend="PopplerIndexIter">PopplerIndexIter</link> *iter);
+<link linkend="void">void</link>        <link linkend="poppler-index-iter-free">poppler_index_iter_free</link>         (<link linkend="PopplerIndexIter">PopplerIndexIter</link> *iter);
+<link linkend="PopplerIndexIter">PopplerIndexIter</link>* <link linkend="poppler-index-iter-get-child">poppler_index_iter_get_child</link>
+                                            (<link linkend="PopplerIndexIter">PopplerIndexIter</link> *parent);
+<link linkend="gboolean">gboolean</link>    <link linkend="poppler-index-iter-is-open">poppler_index_iter_is_open</link>      (<link linkend="PopplerIndexIter">PopplerIndexIter</link> *iter);
+<link linkend="PopplerAction">PopplerAction</link>* <link linkend="poppler-index-iter-get-action">poppler_index_iter_get_action</link>
+                                            (<link linkend="PopplerIndexIter">PopplerIndexIter</link> *iter);
+<link linkend="gboolean">gboolean</link>    <link linkend="poppler-index-iter-next">poppler_index_iter_next</link>         (<link linkend="PopplerIndexIter">PopplerIndexIter</link> *iter);
+<link linkend="PopplerFontInfo">PopplerFontInfo</link>* <link linkend="poppler-font-info-new">poppler_font_info_new</link>      (<link linkend="PopplerDocument">PopplerDocument</link> *document);
+<link linkend="gboolean">gboolean</link>    <link linkend="poppler-font-info-scan">poppler_font_info_scan</link>          (<link linkend="PopplerFontInfo">PopplerFontInfo</link> *font_info,
+                                             <link linkend="int">int</link> n_pages,
+                                             <link linkend="PopplerFontsIter">PopplerFontsIter</link> **iter);
+<link linkend="void">void</link>        <link linkend="poppler-font-info-free">poppler_font_info_free</link>          (<link linkend="PopplerFontInfo">PopplerFontInfo</link> *font_info);
+<link linkend="GType">GType</link>       <link linkend="poppler-fonts-iter-get-type">poppler_fonts_iter_get_type</link>     (void);
+<link linkend="PopplerFontsIter">PopplerFontsIter</link>* <link linkend="poppler-fonts-iter-copy">poppler_fonts_iter_copy</link>   (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);
+<link linkend="void">void</link>        <link linkend="poppler-fonts-iter-free">poppler_fonts_iter_free</link>         (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);
+const <link linkend="char">char</link>* <link linkend="poppler-fonts-iter-get-name">poppler_fonts_iter_get_name</link>     (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);
+const <link linkend="char">char</link>* <link linkend="poppler-fonts-iter-get-full-name">poppler_fonts_iter_get_full_name</link>
+                                            (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);
+<link linkend="PopplerFontType">PopplerFontType</link> <link linkend="poppler-fonts-iter-get-font-type">poppler_fonts_iter_get_font_type</link>
+                                            (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);
+<link linkend="gboolean">gboolean</link>    <link linkend="poppler-fonts-iter-is-embedded">poppler_fonts_iter_is_embedded</link>  (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);
+<link linkend="gboolean">gboolean</link>    <link linkend="poppler-fonts-iter-is-subset">poppler_fonts_iter_is_subset</link>    (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);
+<link linkend="gboolean">gboolean</link>    <link linkend="poppler-fonts-iter-next">poppler_fonts_iter_next</link>         (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);
+<link linkend="PopplerPSFile">PopplerPSFile</link>* <link linkend="poppler-ps-file-new">poppler_ps_file_new</link>          (<link linkend="PopplerDocument">PopplerDocument</link> *document,
+                                             const <link linkend="char">char</link> *filename,
+                                             <link linkend="int">int</link> first_page,
+                                             <link linkend="int">int</link> n_pages);
+<link linkend="void">void</link>        <link linkend="poppler-ps-file-set-paper-size">poppler_ps_file_set_paper_size</link>  (<link linkend="PopplerPSFile">PopplerPSFile</link> *ps_file,
+                                             <link linkend="double">double</link> width,
+                                             <link linkend="double">double</link> height);
+<link linkend="void">void</link>        <link linkend="poppler-ps-file-set-duplex">poppler_ps_file_set_duplex</link>      (<link linkend="PopplerPSFile">PopplerPSFile</link> *ps_file,
+                                             <link linkend="gboolean">gboolean</link> duplex);
+<link linkend="void">void</link>        <link linkend="poppler-ps-file-free">poppler_ps_file_free</link>            (<link linkend="PopplerPSFile">PopplerPSFile</link> *ps_file);
+
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+The <link linkend="PopplerDocument"><type>PopplerDocument</type></link> is an object used to refer to a main document.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="PopplerPageLayout"/>enum PopplerPageLayout</title>
+<indexterm><primary>PopplerPageLayout</primary></indexterm><programlisting>typedef enum
+{
+  POPPLER_PAGE_LAYOUT_UNSET,
+  POPPLER_PAGE_LAYOUT_SINGLE_PAGE,
+  POPPLER_PAGE_LAYOUT_ONE_COLUMN,
+  POPPLER_PAGE_LAYOUT_TWO_COLUMN_LEFT,
+  POPPLER_PAGE_LAYOUT_TWO_COLUMN_RIGHT,
+  POPPLER_PAGE_LAYOUT_TWO_PAGE_LEFT,
+  POPPLER_PAGE_LAYOUT_TWO_PAGE_RIGHT,
+} PopplerPageLayout;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="PopplerPageMode"/>enum PopplerPageMode</title>
+<indexterm><primary>PopplerPageMode</primary></indexterm><programlisting>typedef enum
+{
+  POPPLER_PAGE_MODE_UNSET,
+  POPPLER_PAGE_MODE_NONE,
+  POPPLER_PAGE_MODE_USE_OUTLINES,
+  POPPLER_PAGE_MODE_USE_THUMBS,
+  POPPLER_PAGE_MODE_FULL_SCREEN,
+  POPPLER_PAGE_MODE_USE_OC,
+  POPPLER_PAGE_MODE_USE_ATTACHMENTS,
+} PopplerPageMode;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="PopplerFontType"/>enum PopplerFontType</title>
+<indexterm><primary>PopplerFontType</primary></indexterm><programlisting>typedef enum
+{
+  POPPLER_FONT_TYPE_UNKNOWN,
+  POPPLER_FONT_TYPE_TYPE1,
+  POPPLER_FONT_TYPE_TYPE1C,
+  POPPLER_FONT_TYPE_TYPE3,
+  POPPLER_FONT_TYPE_TRUETYPE,
+  POPPLER_FONT_TYPE_CID_TYPE0,
+  POPPLER_FONT_TYPE_CID_TYPE0C,
+  POPPLER_FONT_TYPE_CID_TYPE2
+} PopplerFontType;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="PopplerViewerPreferences"/>enum PopplerViewerPreferences</title>
+<indexterm><primary>PopplerViewerPreferences</primary></indexterm><programlisting>typedef enum /*&lt; flags &gt;*/
+{
+  POPPLER_VIEWER_PREFERENCES_UNSET = 0,
+  POPPLER_VIEWER_PREFERENCES_HIDE_TOOLBAR = 1 &lt;&lt; 0,
+  POPPLER_VIEWER_PREFERENCES_HIDE_MENUBAR = 1 &lt;&lt; 1,
+  POPPLER_VIEWER_PREFERENCES_HIDE_WINDOWUI = 1 &lt;&lt; 2,
+  POPPLER_VIEWER_PREFERENCES_FIT_WINDOW = 1 &lt;&lt; 3,
+  POPPLER_VIEWER_PREFERENCES_CENTER_WINDOW = 1 &lt;&lt; 4,
+  POPPLER_VIEWER_PREFERENCES_DISPLAY_DOC_TITLE = 1 &lt;&lt; 5,
+  POPPLER_VIEWER_PREFERENCES_DIRECTION_RTL = 1 &lt;&lt; 6,
+} PopplerViewerPreferences;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="PopplerPermissions"/>enum PopplerPermissions</title>
+<indexterm><primary>PopplerPermissions</primary></indexterm><programlisting>typedef enum /*&lt; flags &gt;*/
+{
+  POPPLER_PERMISSIONS_OK_TO_PRINT = 1 &lt;&lt; 0,
+  POPPLER_PERMISSIONS_OK_TO_MODIFY = 1 &lt;&lt; 1,
+  POPPLER_PERMISSIONS_OK_TO_COPY = 1 &lt;&lt; 2,
+  POPPLER_PERMISSIONS_OK_TO_ADD_NOTES = 1 &lt;&lt; 3,
+  POPPLER_PERMISSIONS_FULL = (POPPLER_PERMISSIONS_OK_TO_PRINT | POPPLER_PERMISSIONS_OK_TO_MODIFY | POPPLER_PERMISSIONS_OK_TO_COPY | POPPLER_PERMISSIONS_OK_TO_ADD_NOTES),
+
+} PopplerPermissions;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="poppler-document-new-from-file"/>poppler_document_new_from_file ()</title>
+<indexterm><primary>poppler_document_new_from_file</primary></indexterm><programlisting><link linkend="PopplerDocument">PopplerDocument</link>* poppler_document_new_from_file
+                                            (const <link linkend="char">char</link> *uri,
+                                             const <link linkend="char">char</link> *password,
+                                             <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>uri</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>password</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-document-save"/>poppler_document_save ()</title>
+<indexterm><primary>poppler_document_save</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    poppler_document_save           (<link linkend="PopplerDocument">PopplerDocument</link> *document,
+                                             const <link linkend="char">char</link> *uri,
+                                             <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>document</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>uri</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-document-get-n-pages"/>poppler_document_get_n_pages ()</title>
+<indexterm><primary>poppler_document_get_n_pages</primary></indexterm><programlisting><link linkend="int">int</link>         poppler_document_get_n_pages    (<link linkend="PopplerDocument">PopplerDocument</link> *document);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>document</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-document-get-page"/>poppler_document_get_page ()</title>
+<indexterm><primary>poppler_document_get_page</primary></indexterm><programlisting><link linkend="PopplerPage">PopplerPage</link>* poppler_document_get_page      (<link linkend="PopplerDocument">PopplerDocument</link> *document,
+                                             <link linkend="int">int</link> index);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>document</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>index</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-document-get-page-by-label"/>poppler_document_get_page_by_label ()</title>
+<indexterm><primary>poppler_document_get_page_by_label</primary></indexterm><programlisting><link linkend="PopplerPage">PopplerPage</link>* poppler_document_get_page_by_label
+                                            (<link linkend="PopplerDocument">PopplerDocument</link> *document,
+                                             const <link linkend="char">char</link> *label);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>document</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>label</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-index-iter-get-type"/>poppler_index_iter_get_type ()</title>
+<indexterm><primary>poppler_index_iter_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>       poppler_index_iter_get_type     (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-index-iter-new"/>poppler_index_iter_new ()</title>
+<indexterm><primary>poppler_index_iter_new</primary></indexterm><programlisting><link linkend="PopplerIndexIter">PopplerIndexIter</link>* poppler_index_iter_new    (<link linkend="PopplerDocument">PopplerDocument</link> *document);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>document</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-index-iter-copy"/>poppler_index_iter_copy ()</title>
+<indexterm><primary>poppler_index_iter_copy</primary></indexterm><programlisting><link linkend="PopplerIndexIter">PopplerIndexIter</link>* poppler_index_iter_copy   (<link linkend="PopplerIndexIter">PopplerIndexIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-index-iter-free"/>poppler_index_iter_free ()</title>
+<indexterm><primary>poppler_index_iter_free</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_index_iter_free         (<link linkend="PopplerIndexIter">PopplerIndexIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-index-iter-get-child"/>poppler_index_iter_get_child ()</title>
+<indexterm><primary>poppler_index_iter_get_child</primary></indexterm><programlisting><link linkend="PopplerIndexIter">PopplerIndexIter</link>* poppler_index_iter_get_child
+                                            (<link linkend="PopplerIndexIter">PopplerIndexIter</link> *parent);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>parent</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-index-iter-is-open"/>poppler_index_iter_is_open ()</title>
+<indexterm><primary>poppler_index_iter_is_open</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    poppler_index_iter_is_open      (<link linkend="PopplerIndexIter">PopplerIndexIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-index-iter-get-action"/>poppler_index_iter_get_action ()</title>
+<indexterm><primary>poppler_index_iter_get_action</primary></indexterm><programlisting><link linkend="PopplerAction">PopplerAction</link>* poppler_index_iter_get_action
+                                            (<link linkend="PopplerIndexIter">PopplerIndexIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-index-iter-next"/>poppler_index_iter_next ()</title>
+<indexterm><primary>poppler_index_iter_next</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    poppler_index_iter_next         (<link linkend="PopplerIndexIter">PopplerIndexIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-font-info-new"/>poppler_font_info_new ()</title>
+<indexterm><primary>poppler_font_info_new</primary></indexterm><programlisting><link linkend="PopplerFontInfo">PopplerFontInfo</link>* poppler_font_info_new      (<link linkend="PopplerDocument">PopplerDocument</link> *document);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>document</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-font-info-scan"/>poppler_font_info_scan ()</title>
+<indexterm><primary>poppler_font_info_scan</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    poppler_font_info_scan          (<link linkend="PopplerFontInfo">PopplerFontInfo</link> *font_info,
+                                             <link linkend="int">int</link> n_pages,
+                                             <link linkend="PopplerFontsIter">PopplerFontsIter</link> **iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>font_info</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_pages</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-font-info-free"/>poppler_font_info_free ()</title>
+<indexterm><primary>poppler_font_info_free</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_font_info_free          (<link linkend="PopplerFontInfo">PopplerFontInfo</link> *font_info);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>font_info</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-fonts-iter-get-type"/>poppler_fonts_iter_get_type ()</title>
+<indexterm><primary>poppler_fonts_iter_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>       poppler_fonts_iter_get_type     (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-fonts-iter-copy"/>poppler_fonts_iter_copy ()</title>
+<indexterm><primary>poppler_fonts_iter_copy</primary></indexterm><programlisting><link linkend="PopplerFontsIter">PopplerFontsIter</link>* poppler_fonts_iter_copy   (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-fonts-iter-free"/>poppler_fonts_iter_free ()</title>
+<indexterm><primary>poppler_fonts_iter_free</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_fonts_iter_free         (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-fonts-iter-get-name"/>poppler_fonts_iter_get_name ()</title>
+<indexterm><primary>poppler_fonts_iter_get_name</primary></indexterm><programlisting>const <link linkend="char">char</link>* poppler_fonts_iter_get_name     (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-fonts-iter-get-full-name"/>poppler_fonts_iter_get_full_name ()</title>
+<indexterm><primary>poppler_fonts_iter_get_full_name</primary></indexterm><programlisting>const <link linkend="char">char</link>* poppler_fonts_iter_get_full_name
+                                            (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-fonts-iter-get-font-type"/>poppler_fonts_iter_get_font_type ()</title>
+<indexterm><primary>poppler_fonts_iter_get_font_type</primary></indexterm><programlisting><link linkend="PopplerFontType">PopplerFontType</link> poppler_fonts_iter_get_font_type
+                                            (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-fonts-iter-is-embedded"/>poppler_fonts_iter_is_embedded ()</title>
+<indexterm><primary>poppler_fonts_iter_is_embedded</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    poppler_fonts_iter_is_embedded  (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-fonts-iter-is-subset"/>poppler_fonts_iter_is_subset ()</title>
+<indexterm><primary>poppler_fonts_iter_is_subset</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    poppler_fonts_iter_is_subset    (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-fonts-iter-next"/>poppler_fonts_iter_next ()</title>
+<indexterm><primary>poppler_fonts_iter_next</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    poppler_fonts_iter_next         (<link linkend="PopplerFontsIter">PopplerFontsIter</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-ps-file-new"/>poppler_ps_file_new ()</title>
+<indexterm><primary>poppler_ps_file_new</primary></indexterm><programlisting><link linkend="PopplerPSFile">PopplerPSFile</link>* poppler_ps_file_new          (<link linkend="PopplerDocument">PopplerDocument</link> *document,
+                                             const <link linkend="char">char</link> *filename,
+                                             <link linkend="int">int</link> first_page,
+                                             <link linkend="int">int</link> n_pages);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>document</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_page</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_pages</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-ps-file-set-paper-size"/>poppler_ps_file_set_paper_size ()</title>
+<indexterm><primary>poppler_ps_file_set_paper_size</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_ps_file_set_paper_size  (<link linkend="PopplerPSFile">PopplerPSFile</link> *ps_file,
+                                             <link linkend="double">double</link> width,
+                                             <link linkend="double">double</link> height);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>ps_file</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-ps-file-set-duplex"/>poppler_ps_file_set_duplex ()</title>
+<indexterm><primary>poppler_ps_file_set_duplex</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_ps_file_set_duplex      (<link linkend="PopplerPSFile">PopplerPSFile</link> *ps_file,
+                                             <link linkend="gboolean">gboolean</link> duplex);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>ps_file</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>duplex</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="poppler-ps-file-free"/>poppler_ps_file_free ()</title>
+<indexterm><primary>poppler_ps_file_free</primary></indexterm><programlisting><link linkend="void">void</link>        poppler_ps_file_free            (<link linkend="PopplerPSFile">PopplerPSFile</link> *ps_file);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>ps_file</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

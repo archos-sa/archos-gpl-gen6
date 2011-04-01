@@ -1,0 +1,13 @@
+--- libupnp-1.4.4/upnp/src/inc/upnpapi.h	2006-07-17 08:37:22.000000000 +0200
++++ ../../../libupnp-1.4.4/upnp/src/inc/upnpapi.h	2007-01-15 18:38:43.000000000 +0100
+@@ -54,8 +54,8 @@
+ 
+ #define DEFAULT_MAXAGE 1800
+ 
+-#define DEFAULT_SOAP_CONTENT_LENGTH 16000
+-#define MAX_SOAP_CONTENT_LENGTH 32000
++#define DEFAULT_SOAP_CONTENT_LENGTH 2000000 
++#define MAX_SOAP_CONTENT_LENGTH 2000000 
+ 
+ extern size_t g_maxContentLength;
+ 

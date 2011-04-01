@@ -1,0 +1,7 @@
+config BR2_PACKAGE_APDF
+        bool "apdf"
+        default n
+        select BR2_PACKAGE_POPPLER
+        select BR2_PACKAGE_TTF_FREEFONTS
+        help
+        The archos pdf viewer.

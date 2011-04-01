@@ -1,0 +1,67 @@
+TEMPLATE = lib
+CONFIG += @BUILD_TYPE@ warn_on
+
+HEADERS = \
+	harfbuzz/src/harfbuzz-buffer.h \
+	harfbuzz/src/harfbuzz-dump.h \
+	harfbuzz/src/harfbuzz-external.h \
+	harfbuzz/src/harfbuzz-gdef.h \
+	harfbuzz/src/harfbuzz-gdef-private.h \
+	harfbuzz/src/harfbuzz-global.h \
+	harfbuzz/src/harfbuzz-gpos.h \
+	harfbuzz/src/harfbuzz-gpos-private.h \
+	harfbuzz/src/harfbuzz-gsub.h \
+	harfbuzz/src/harfbuzz-gsub-private.h \
+	harfbuzz/src/harfbuzz.h \
+	harfbuzz/src/harfbuzz-impl.h \
+	harfbuzz/src/harfbuzz-open.h \
+	harfbuzz/src/harfbuzz-open-private.h \
+	harfbuzz/src/harfbuzz-shape.h \
+	harfbuzz/src/harfbuzz-shaper.h \
+	harfbuzz/src/harfbuzz-shaper-private.h \
+	harfbuzz/src/harfbuzz-stream.h \
+	harfbuzz.h \
+	alog.h \
+	atr.h \
+	util.h \
+	avossocket.h \
+	extapp_msg.h \
+	screen.h \
+	astring.h \
+	awchar.h \
+	ft.h \
+	aimage.h \
+	dmalloc.h
+
+SOURCES = \
+	harfbuzz/src/harfbuzz-arabic.c \
+	harfbuzz/src/harfbuzz-buffer.c \
+	harfbuzz/src/harfbuzz-gdef.c \
+	harfbuzz/src/harfbuzz-global.c \
+	harfbuzz/src/harfbuzz-gpos.c \
+	harfbuzz/src/harfbuzz-gsub.c \
+	harfbuzz/src/harfbuzz-oem.c \
+	harfbuzz/src/harfbuzz-open.c \
+	harfbuzz/src/harfbuzz-shaper.c \
+	harfbuzz/src/harfbuzz-stream.c \
+	harfbuzz.c \
+	alog.cpp \
+	atr.cpp \
+	util.cpp \
+	avossocket.cpp \
+	screen.cpp \
+	astring.cpp \
+	aimage.cpp \
+	dmalloc.c \
+	bidi.c \
+	ft.c \
+
+INCLUDEPATH += harfbuzz/src include
+
+LIBS += -lfreetype
+
+MOC_DIR = ./.obj
+OBJECTS_DIR = ./.obj
+TARGET = archos_support
+
+DEFINES = @TARGET@

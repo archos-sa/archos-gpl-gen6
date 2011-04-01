@@ -1,0 +1,45 @@
+TEMPLATE	= app
+
+CONFIG          += warn_on @BUILD_TYPE@ thread
+
+HEADERS		= qpdf.h pdfwidget.h gotopage.h
+SOURCES		= qpdf.cpp pdfwidget.cpp gotopage.cpp
+TARGET		= apdf
+
+HEADERS  += \
+            general/style.h \
+            general/fontchooser.h \
+            general/slider.h \
+            general/batterywidget.h \
+            general/clockwidget.h \
+            general/statusbar.h \
+            general/separator.h \
+            general/abutton.h \
+            general/volumewidget.h \
+            general/amenu.h \
+            general/atimeline.h \
+            general/apixmaphorizontalbar.h
+
+SOURCES  += \
+            general/style.cpp \
+            general/fontchooser.cpp \
+            general/slider.cpp \
+            general/batterywidget.cpp \
+            general/clockwidget.cpp \
+            general/statusbar.cpp \
+            general/separator.cpp \
+            general/abutton.cpp \
+            general/volumewidget.cpp \
+            general/amenu.cpp \
+            general/atimeline.cpp \
+            general/apixmaphorizontalbar.cpp
+
+MOC_DIR     = ./.obj
+OBJECTS_DIR = ./.obj
+
+LIBS		+= -L@LIBARCHOS_SUPPORT_DIR@/lib -lpoppler-qt -lpoppler -larchos_support
+INCLUDEPATH	=  @POPPLER_DIR@/include/poppler @LIBARCHOS_SUPPORT_DIR@/include
+
+DEFINES		= @TARGET@ PREFIX=\"@PREFIX@\"
+DEFINES     += PDF_SOURCE_RES_WIDTH=@PDF_SOURCE_RES_WIDTH@
+DEFINES     += PDF_SOURCE_RES_HEIGHT=@PDF_SOURCE_RES_HEIGHT@

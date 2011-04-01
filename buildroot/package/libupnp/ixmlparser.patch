@@ -1,0 +1,11 @@
+--- libupnp-1.4.4/ixml/src/inc/ixmlparser.h	2007-01-17 11:00:40.000000000 +0100
++++ /tmp/ixmlparser.h	2007-01-17 11:00:36.000000000 +0100
+@@ -35,6 +35,8 @@
+ #include "ixml.h"
+ #include "ixmlmembuf.h"
+ 
++#define BOOL IXML_BOOL
++
+ // Parser definitions
+ #define QUOT        "&quot;"
+ #define LT          "&lt;"

@@ -1,0 +1,36 @@
+diff -uNr /tmp/libupnp-1.4.4/upnp/src/inc/http_client.h libupnp-1.4.4/upnp/src/inc/http_client.h
+--- /tmp/libupnp-1.4.4/upnp/src/inc/http_client.h	2007-04-17 05:13:17.000000000 +0200
++++ libupnp-1.4.4/upnp/src/inc/http_client.h	2007-04-24 17:38:32.000000000 +0200
+@@ -74,7 +74,7 @@
+ #define TAB 9
+ #define CR 13
+ #define LF 10
+-#define RESPONSE_TIMEOUT 30
++#define RESPONSE_TIMEOUT 20
+ #define SOCKET_BUFFER_SIZE 5000
+ 
+ enum hostType { HOSTNAME, IPv4address };
+diff -uNr /tmp/libupnp-1.4.4/upnp/src/inc/httpreadwrite.h libupnp-1.4.4/upnp/src/inc/httpreadwrite.h
+--- /tmp/libupnp-1.4.4/upnp/src/inc/httpreadwrite.h	2006-10-05 08:19:26.000000000 +0200
++++ libupnp-1.4.4/upnp/src/inc/httpreadwrite.h	2007-04-24 17:39:17.000000000 +0200
+@@ -38,7 +38,7 @@
+ #include "httpparser.h"
+ 
+ // timeout in secs
+-#define HTTP_DEFAULT_TIMEOUT	30
++#define HTTP_DEFAULT_TIMEOUT 	20
+ 
+ 
+ 
+diff -uNr /tmp/libupnp-1.4.4/upnp/src/inc/upnpapi.h libupnp-1.4.4/upnp/src/inc/upnpapi.h
+--- /tmp/libupnp-1.4.4/upnp/src/inc/upnpapi.h	2006-10-05 08:19:26.000000000 +0200
++++ libupnp-1.4.4/upnp/src/inc/upnpapi.h	2007-04-24 17:37:25.000000000 +0200
+@@ -60,7 +60,7 @@
+ extern size_t g_maxContentLength;
+ 
+ // 30-second timeout
+-#define UPNP_TIMEOUT	30
++#define UPNP_TIMEOUT	20
+ 
+ typedef enum {HND_INVALID=-1,HND_CLIENT,HND_DEVICE} Upnp_Handle_Type;
+ 

@@ -1,0 +1,42 @@
+# Building libarchos_support
+
+libarchos_support uses tmake to generate Makefiles. Since tmake does not
+support enough parameterization and does not support "install" target, there is
+an additional Makefile layer above it.
+
+To build libarchos_support you need to:
+- create a "conf.mk" file (see below)
+- run "make"
+- run "make install"
+
+
+# The conf.mk file
+
+To build the package, create a "conf.mk" file based on the content of
+"conf.mk.sample".
+
+You can include "conf.mk.sample" to avoid duplication. For example, here is my "conf.mk" file:
+
+    include conf.mk.sample
+
+    # Where is buildroot installed on the machine
+    _buildroot=/home/aurelien/projects/archos/avx6/buildroot/
+
+    # Add compiler bin/ dir to PATH
+    PATH:=$(_buildroot)/build_i586/staging_dir/usr/bin/:$(PATH)
+
+This makes it possible to override the minimum number of variables. Copying the
+PATH line was still needed because it use ":=" rather than "=".
+
+The convention used in the conf.mk files is that lowercase vars prefixed with
+"_" are internal to the .mk, while uppercase vars are meant to be used by the
+Makefile.
+
+
+# How it works
+
+The toplevel Makefile does the following:
+1. includes conf.mk
+2. runs tmplgen to generate src/libarchos_support.pro from src/libarchos_support.pro.tmpl
+3. runs tmake to generate src/Makefile from src/libarchos_support.pro
+4. runs make in src/

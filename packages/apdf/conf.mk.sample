@@ -1,0 +1,33 @@
+# Can be either debug or release
+BUILD_TYPE=debug
+
+# Where to install
+PREFIX=/opt/usr
+
+# Can be either SIM or REAL
+TARGET=SIM
+
+# Where is buildroot installed on the machine
+_buildroot=/path/to/avx6/buildroot
+_staging_dir=$(_buildroot)/build_i586/staging_dir
+
+# Where to find tmake and which template set to use
+_tmakedir=$(_buildroot)/build_i586/tmake-1.13
+TMAKEPATH=$(_tmakedir)/lib/qws/linux-uclibc-g++
+TMAKE=$(_tmakedir)/bin/tmake
+
+# Where has Qt2 been built
+QTDIR=$(_buildroot)/build_i586/qt-2.3.10
+
+# Add compiler bin/ dir to PATH
+PATH:=$(_staging_dir)/usr/bin/:$(PATH)
+
+# Where is libarchos_support installed
+LIBARCHOS_SUPPORT_DIR=$(_staging_dir)/$(PREFIX)
+
+# Where is poppler installed
+POPPLER_DIR=$(_staging_dir)/$(PREFIX)
+
+# PDF size
+PDF_SOURCE_RES_WIDTH=1588
+PDF_SOURCE_RES_HEIGHT=2246

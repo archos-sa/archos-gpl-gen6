@@ -1,0 +1,1104 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>PopplerDocument</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.69.1">
+<link rel="start" href="index.html" title="Poppler Reference Manual">
+<link rel="up" href="ch01.html" title="Poppler">
+<link rel="prev" href="poppler-poppler.html" title="poppler">
+<link rel="next" href="poppler-poppler-page.html" title="PopplerPage">
+<meta name="generator" content="GTK-Doc V1.4 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Poppler">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="poppler-poppler.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Poppler Reference Manual</th>
+<td><a accesskey="n" href="poppler-poppler-page.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="poppler-poppler-document"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">PopplerDocument</span></h2>
+<p>PopplerDocument &#8212; Information about a document</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+enum        <a href="poppler-poppler-document.html#PopplerPageLayout">PopplerPageLayout</a>;
+enum        <a href="poppler-poppler-document.html#PopplerPageMode">PopplerPageMode</a>;
+enum        <a href="poppler-poppler-document.html#PopplerFontType">PopplerFontType</a>;
+enum        <a href="poppler-poppler-document.html#PopplerViewerPreferences">PopplerViewerPreferences</a>;
+enum        <a href="poppler-poppler-document.html#PopplerPermissions">PopplerPermissions</a>;
+<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a>* <a href="poppler-poppler-document.html#poppler-document-new-from-file">poppler_document_new_from_file</a>
+                                            (const char *uri,
+                                             const char *password,
+                                             <a
+href="../glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+<a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="poppler-poppler-document.html#poppler-document-save">poppler_document_save</a>           (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document,
+                                             const char *uri,
+                                             <a
+href="../glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+int         <a href="poppler-poppler-document.html#poppler-document-get-n-pages">poppler_document_get_n_pages</a>    (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document);
+<a href="poppler-poppler.html#PopplerPage">PopplerPage</a>* <a href="poppler-poppler-document.html#poppler-document-get-page">poppler_document_get_page</a>      (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document,
+                                             int index);
+<a href="poppler-poppler.html#PopplerPage">PopplerPage</a>* <a href="poppler-poppler-document.html#poppler-document-get-page-by-label">poppler_document_get_page_by_label</a>
+                                            (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document,
+                                             const char *label);
+<a
+href="../gobject/gobject-Type-Information.html#GType"
+>GType</a>       <a href="poppler-poppler-document.html#poppler-index-iter-get-type">poppler_index_iter_get_type</a>     (void);
+<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a>* <a href="poppler-poppler-document.html#poppler-index-iter-new">poppler_index_iter_new</a>    (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document);
+<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a>* <a href="poppler-poppler-document.html#poppler-index-iter-copy">poppler_index_iter_copy</a>   (<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a> *iter);
+void        <a href="poppler-poppler-document.html#poppler-index-iter-free">poppler_index_iter_free</a>         (<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a> *iter);
+<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a>* <a href="poppler-poppler-document.html#poppler-index-iter-get-child">poppler_index_iter_get_child</a>
+                                            (<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a> *parent);
+<a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="poppler-poppler-document.html#poppler-index-iter-is-open">poppler_index_iter_is_open</a>      (<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a> *iter);
+<a href="poppler-poppler-action.html#PopplerAction">PopplerAction</a>* <a href="poppler-poppler-document.html#poppler-index-iter-get-action">poppler_index_iter_get_action</a>
+                                            (<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a> *iter);
+<a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="poppler-poppler-document.html#poppler-index-iter-next">poppler_index_iter_next</a>         (<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a> *iter);
+<a href="poppler-poppler.html#PopplerFontInfo">PopplerFontInfo</a>* <a href="poppler-poppler-document.html#poppler-font-info-new">poppler_font_info_new</a>      (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document);
+<a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="poppler-poppler-document.html#poppler-font-info-scan">poppler_font_info_scan</a>          (<a href="poppler-poppler.html#PopplerFontInfo">PopplerFontInfo</a> *font_info,
+                                             int n_pages,
+                                             <a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> **iter);
+void        <a href="poppler-poppler-document.html#poppler-font-info-free">poppler_font_info_free</a>          (<a href="poppler-poppler.html#PopplerFontInfo">PopplerFontInfo</a> *font_info);
+<a
+href="../gobject/gobject-Type-Information.html#GType"
+>GType</a>       <a href="poppler-poppler-document.html#poppler-fonts-iter-get-type">poppler_fonts_iter_get_type</a>     (void);
+<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a>* <a href="poppler-poppler-document.html#poppler-fonts-iter-copy">poppler_fonts_iter_copy</a>   (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);
+void        <a href="poppler-poppler-document.html#poppler-fonts-iter-free">poppler_fonts_iter_free</a>         (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);
+const char* <a href="poppler-poppler-document.html#poppler-fonts-iter-get-name">poppler_fonts_iter_get_name</a>     (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);
+const char* <a href="poppler-poppler-document.html#poppler-fonts-iter-get-full-name">poppler_fonts_iter_get_full_name</a>
+                                            (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);
+<a href="poppler-poppler-document.html#PopplerFontType">PopplerFontType</a> <a href="poppler-poppler-document.html#poppler-fonts-iter-get-font-type">poppler_fonts_iter_get_font_type</a>
+                                            (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);
+<a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="poppler-poppler-document.html#poppler-fonts-iter-is-embedded">poppler_fonts_iter_is_embedded</a>  (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);
+<a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="poppler-poppler-document.html#poppler-fonts-iter-is-subset">poppler_fonts_iter_is_subset</a>    (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);
+<a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    <a href="poppler-poppler-document.html#poppler-fonts-iter-next">poppler_fonts_iter_next</a>         (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);
+<a href="poppler-poppler.html#PopplerPSFile">PopplerPSFile</a>* <a href="poppler-poppler-document.html#poppler-ps-file-new">poppler_ps_file_new</a>          (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document,
+                                             const char *filename,
+                                             int first_page,
+                                             int n_pages);
+void        <a href="poppler-poppler-document.html#poppler-ps-file-set-paper-size">poppler_ps_file_set_paper_size</a>  (<a href="poppler-poppler.html#PopplerPSFile">PopplerPSFile</a> *ps_file,
+                                             double width,
+                                             double height);
+void        <a href="poppler-poppler-document.html#poppler-ps-file-set-duplex">poppler_ps_file_set_duplex</a>      (<a href="poppler-poppler.html#PopplerPSFile">PopplerPSFile</a> *ps_file,
+                                             <a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> duplex);
+void        <a href="poppler-poppler-document.html#poppler-ps-file-free">poppler_ps_file_free</a>            (<a href="poppler-poppler.html#PopplerPSFile">PopplerPSFile</a> *ps_file);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2953909"></a><h2>Description</h2>
+<p>
+The <a href="poppler-poppler.html#PopplerDocument"><span class="type">PopplerDocument</span></a> is an object used to refer to a main document.
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2953929"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2953935"></a><h3>
+<a name="PopplerPageLayout"></a>enum PopplerPageLayout</h3>
+<a class="indexterm" name="id2953945"></a><pre class="programlisting">typedef enum
+{
+  POPPLER_PAGE_LAYOUT_UNSET,
+  POPPLER_PAGE_LAYOUT_SINGLE_PAGE,
+  POPPLER_PAGE_LAYOUT_ONE_COLUMN,
+  POPPLER_PAGE_LAYOUT_TWO_COLUMN_LEFT,
+  POPPLER_PAGE_LAYOUT_TWO_COLUMN_RIGHT,
+  POPPLER_PAGE_LAYOUT_TWO_PAGE_LEFT,
+  POPPLER_PAGE_LAYOUT_TWO_PAGE_RIGHT,
+} PopplerPageLayout;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2953965"></a><h3>
+<a name="PopplerPageMode"></a>enum PopplerPageMode</h3>
+<a class="indexterm" name="id2953975"></a><pre class="programlisting">typedef enum
+{
+  POPPLER_PAGE_MODE_UNSET,
+  POPPLER_PAGE_MODE_NONE,
+  POPPLER_PAGE_MODE_USE_OUTLINES,
+  POPPLER_PAGE_MODE_USE_THUMBS,
+  POPPLER_PAGE_MODE_FULL_SCREEN,
+  POPPLER_PAGE_MODE_USE_OC,
+  POPPLER_PAGE_MODE_USE_ATTACHMENTS,
+} PopplerPageMode;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2953994"></a><h3>
+<a name="PopplerFontType"></a>enum PopplerFontType</h3>
+<a class="indexterm" name="id2954004"></a><pre class="programlisting">typedef enum
+{
+  POPPLER_FONT_TYPE_UNKNOWN,
+  POPPLER_FONT_TYPE_TYPE1,
+  POPPLER_FONT_TYPE_TYPE1C,
+  POPPLER_FONT_TYPE_TYPE3,
+  POPPLER_FONT_TYPE_TRUETYPE,
+  POPPLER_FONT_TYPE_CID_TYPE0,
+  POPPLER_FONT_TYPE_CID_TYPE0C,
+  POPPLER_FONT_TYPE_CID_TYPE2
+} PopplerFontType;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2954024"></a><h3>
+<a name="PopplerViewerPreferences"></a>enum PopplerViewerPreferences</h3>
+<a class="indexterm" name="id2954033"></a><pre class="programlisting">typedef enum /*&lt; flags &gt;*/
+{
+  POPPLER_VIEWER_PREFERENCES_UNSET = 0,
+  POPPLER_VIEWER_PREFERENCES_HIDE_TOOLBAR = 1 &lt;&lt; 0,
+  POPPLER_VIEWER_PREFERENCES_HIDE_MENUBAR = 1 &lt;&lt; 1,
+  POPPLER_VIEWER_PREFERENCES_HIDE_WINDOWUI = 1 &lt;&lt; 2,
+  POPPLER_VIEWER_PREFERENCES_FIT_WINDOW = 1 &lt;&lt; 3,
+  POPPLER_VIEWER_PREFERENCES_CENTER_WINDOW = 1 &lt;&lt; 4,
+  POPPLER_VIEWER_PREFERENCES_DISPLAY_DOC_TITLE = 1 &lt;&lt; 5,
+  POPPLER_VIEWER_PREFERENCES_DIRECTION_RTL = 1 &lt;&lt; 6,
+} PopplerViewerPreferences;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2954056"></a><h3>
+<a name="PopplerPermissions"></a>enum PopplerPermissions</h3>
+<a class="indexterm" name="id2954066"></a><pre class="programlisting">typedef enum /*&lt; flags &gt;*/
+{
+  POPPLER_PERMISSIONS_OK_TO_PRINT = 1 &lt;&lt; 0,
+  POPPLER_PERMISSIONS_OK_TO_MODIFY = 1 &lt;&lt; 1,
+  POPPLER_PERMISSIONS_OK_TO_COPY = 1 &lt;&lt; 2,
+  POPPLER_PERMISSIONS_OK_TO_ADD_NOTES = 1 &lt;&lt; 3,
+  POPPLER_PERMISSIONS_FULL = (POPPLER_PERMISSIONS_OK_TO_PRINT | POPPLER_PERMISSIONS_OK_TO_MODIFY | POPPLER_PERMISSIONS_OK_TO_COPY | POPPLER_PERMISSIONS_OK_TO_ADD_NOTES),
+
+} PopplerPermissions;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2954088"></a><h3>
+<a name="poppler-document-new-from-file"></a>poppler_document_new_from_file ()</h3>
+<a class="indexterm" name="id2954099"></a><pre class="programlisting"><a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a>* poppler_document_new_from_file
+                                            (const char *uri,
+                                             const char *password,
+                                             <a
+href="../glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>uri</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>password</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>error</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2964646"></a><h3>
+<a name="poppler-document-save"></a>poppler_document_save ()</h3>
+<a class="indexterm" name="id2964654"></a><pre class="programlisting"><a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    poppler_document_save           (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document,
+                                             const char *uri,
+                                             <a
+href="../glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>uri</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>error</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2964746"></a><h3>
+<a name="poppler-document-get-n-pages"></a>poppler_document_get_n_pages ()</h3>
+<a class="indexterm" name="id2964757"></a><pre class="programlisting">int         poppler_document_get_n_pages    (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2964814"></a><h3>
+<a name="poppler-document-get-page"></a>poppler_document_get_page ()</h3>
+<a class="indexterm" name="id2964823"></a><pre class="programlisting"><a href="poppler-poppler.html#PopplerPage">PopplerPage</a>* poppler_document_get_page      (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document,
+                                             int index);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>index</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2964901"></a><h3>
+<a name="poppler-document-get-page-by-label"></a>poppler_document_get_page_by_label ()</h3>
+<a class="indexterm" name="id2964912"></a><pre class="programlisting"><a href="poppler-poppler.html#PopplerPage">PopplerPage</a>* poppler_document_get_page_by_label
+                                            (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document,
+                                             const char *label);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>label</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2964990"></a><h3>
+<a name="poppler-index-iter-get-type"></a>poppler_index_iter_get_type ()</h3>
+<a class="indexterm" name="id2964999"></a><pre class="programlisting"><a
+href="../gobject/gobject-Type-Information.html#GType"
+>GType</a>       poppler_index_iter_get_type     (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965035"></a><h3>
+<a name="poppler-index-iter-new"></a>poppler_index_iter_new ()</h3>
+<a class="indexterm" name="id2965044"></a><pre class="programlisting"><a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a>* poppler_index_iter_new    (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965101"></a><h3>
+<a name="poppler-index-iter-copy"></a>poppler_index_iter_copy ()</h3>
+<a class="indexterm" name="id2965110"></a><pre class="programlisting"><a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a>* poppler_index_iter_copy   (<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965166"></a><h3>
+<a name="poppler-index-iter-free"></a>poppler_index_iter_free ()</h3>
+<a class="indexterm" name="id2965175"></a><pre class="programlisting">void        poppler_index_iter_free         (<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965220"></a><h3>
+<a name="poppler-index-iter-get-child"></a>poppler_index_iter_get_child ()</h3>
+<a class="indexterm" name="id2965231"></a><pre class="programlisting"><a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a>* poppler_index_iter_get_child
+                                            (<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a> *parent);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>parent</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965289"></a><h3>
+<a name="poppler-index-iter-is-open"></a>poppler_index_iter_is_open ()</h3>
+<a class="indexterm" name="id2965299"></a><pre class="programlisting"><a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    poppler_index_iter_is_open      (<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965355"></a><h3>
+<a name="poppler-index-iter-get-action"></a>poppler_index_iter_get_action ()</h3>
+<a class="indexterm" name="id2965366"></a><pre class="programlisting"><a href="poppler-poppler-action.html#PopplerAction">PopplerAction</a>* poppler_index_iter_get_action
+                                            (<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965424"></a><h3>
+<a name="poppler-index-iter-next"></a>poppler_index_iter_next ()</h3>
+<a class="indexterm" name="id2965433"></a><pre class="programlisting"><a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    poppler_index_iter_next         (<a href="poppler-poppler.html#PopplerIndexIter">PopplerIndexIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965490"></a><h3>
+<a name="poppler-font-info-new"></a>poppler_font_info_new ()</h3>
+<a class="indexterm" name="id2965498"></a><pre class="programlisting"><a href="poppler-poppler.html#PopplerFontInfo">PopplerFontInfo</a>* poppler_font_info_new      (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965555"></a><h3>
+<a name="poppler-font-info-scan"></a>poppler_font_info_scan ()</h3>
+<a class="indexterm" name="id2965564"></a><pre class="programlisting"><a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    poppler_font_info_scan          (<a href="poppler-poppler.html#PopplerFontInfo">PopplerFontInfo</a> *font_info,
+                                             int n_pages,
+                                             <a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> **iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>font_info</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>n_pages</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965645"></a><h3>
+<a name="poppler-font-info-free"></a>poppler_font_info_free ()</h3>
+<a class="indexterm" name="id2965654"></a><pre class="programlisting">void        poppler_font_info_free          (<a href="poppler-poppler.html#PopplerFontInfo">PopplerFontInfo</a> *font_info);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>font_info</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965694"></a><h3>
+<a name="poppler-fonts-iter-get-type"></a>poppler_fonts_iter_get_type ()</h3>
+<a class="indexterm" name="id2965703"></a><pre class="programlisting"><a
+href="../gobject/gobject-Type-Information.html#GType"
+>GType</a>       poppler_fonts_iter_get_type     (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965736"></a><h3>
+<a name="poppler-fonts-iter-copy"></a>poppler_fonts_iter_copy ()</h3>
+<a class="indexterm" name="id2965744"></a><pre class="programlisting"><a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a>* poppler_fonts_iter_copy   (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965794"></a><h3>
+<a name="poppler-fonts-iter-free"></a>poppler_fonts_iter_free ()</h3>
+<a class="indexterm" name="id2965802"></a><pre class="programlisting">void        poppler_fonts_iter_free         (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965843"></a><h3>
+<a name="poppler-fonts-iter-get-name"></a>poppler_fonts_iter_get_name ()</h3>
+<a class="indexterm" name="id2965852"></a><pre class="programlisting">const char* poppler_fonts_iter_get_name     (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965903"></a><h3>
+<a name="poppler-fonts-iter-get-full-name"></a>poppler_fonts_iter_get_full_name ()</h3>
+<a class="indexterm" name="id2965913"></a><pre class="programlisting">const char* poppler_fonts_iter_get_full_name
+                                            (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2965966"></a><h3>
+<a name="poppler-fonts-iter-get-font-type"></a>poppler_fonts_iter_get_font_type ()</h3>
+<a class="indexterm" name="id2965976"></a><pre class="programlisting"><a href="poppler-poppler-document.html#PopplerFontType">PopplerFontType</a> poppler_fonts_iter_get_font_type
+                                            (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2966028"></a><h3>
+<a name="poppler-fonts-iter-is-embedded"></a>poppler_fonts_iter_is_embedded ()</h3>
+<a class="indexterm" name="id2966038"></a><pre class="programlisting"><a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    poppler_fonts_iter_is_embedded  (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2966089"></a><h3>
+<a name="poppler-fonts-iter-is-subset"></a>poppler_fonts_iter_is_subset ()</h3>
+<a class="indexterm" name="id2966099"></a><pre class="programlisting"><a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    poppler_fonts_iter_is_subset    (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2966150"></a><h3>
+<a name="poppler-fonts-iter-next"></a>poppler_fonts_iter_next ()</h3>
+<a class="indexterm" name="id2966159"></a><pre class="programlisting"><a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>    poppler_fonts_iter_next         (<a href="poppler-poppler.html#PopplerFontsIter">PopplerFontsIter</a> *iter);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2966209"></a><h3>
+<a name="poppler-ps-file-new"></a>poppler_ps_file_new ()</h3>
+<a class="indexterm" name="id2966217"></a><pre class="programlisting"><a href="poppler-poppler.html#PopplerPSFile">PopplerPSFile</a>* poppler_ps_file_new          (<a href="poppler-poppler.html#PopplerDocument">PopplerDocument</a> *document,
+                                             const char *filename,
+                                             int first_page,
+                                             int n_pages);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>filename</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>first_page</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>n_pages</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2966324"></a><h3>
+<a name="poppler-ps-file-set-paper-size"></a>poppler_ps_file_set_paper_size ()</h3>
+<a class="indexterm" name="id2966334"></a><pre class="programlisting">void        poppler_ps_file_set_paper_size  (<a href="poppler-poppler.html#PopplerPSFile">PopplerPSFile</a> *ps_file,
+                                             double width,
+                                             double height);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>ps_file</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>width</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>height</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2966414"></a><h3>
+<a name="poppler-ps-file-set-duplex"></a>poppler_ps_file_set_duplex ()</h3>
+<a class="indexterm" name="id2966423"></a><pre class="programlisting">void        poppler_ps_file_set_duplex      (<a href="poppler-poppler.html#PopplerPSFile">PopplerPSFile</a> *ps_file,
+                                             <a
+href="../glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> duplex);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>ps_file</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>duplex</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2966482"></a><h3>
+<a name="poppler-ps-file-free"></a>poppler_ps_file_free ()</h3>
+<a class="indexterm" name="id2966490"></a><pre class="programlisting">void        poppler_ps_file_free            (<a href="poppler-poppler.html#PopplerPSFile">PopplerPSFile</a> *ps_file);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>ps_file</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="0"><tr valign="middle">
+<td align="left"><a accesskey="p" href="poppler-poppler.html"><b>&lt;&lt;&#160;poppler</b></a></td>
+<td align="right"><a accesskey="n" href="poppler-poppler-page.html"><b>PopplerPage&#160;&gt;&gt;</b></a></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,11 @@
+--- libupnp-1.4.4/build/inc/config.h	2006-07-17 08:37:25.000000000 +0200
++++ bla/libupnp-1.4.4/build/inc/config.h	2007-01-23 10:56:48.000000000 +0100
+@@ -102,7 +102,7 @@
+  * This can be adjusted dynamically with {\tt UpnpSetMaxContentLength}.
+  */
+ //@{
+-#define DEFAULT_SOAP_CONTENT_LENGTH 16000
++#define DEFAULT_SOAP_CONTENT_LENGTH 2000000
+ //@}
+ 
+ /** @name NUM_SSDP_COPY

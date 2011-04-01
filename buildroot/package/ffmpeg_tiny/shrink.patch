@@ -1,0 +1,693 @@
+diff -uwbr ffmpeg/libavcodec/allcodecs.c ffmpeg_patched/libavcodec/allcodecs.c
+--- ffmpeg/libavcodec/allcodecs.c	2008-01-07 20:32:22.000000000 +0100
++++ ffmpeg_patched/libavcodec/allcodecs.c	2008-01-07 19:14:13.000000000 +0100
+@@ -53,224 +53,9 @@
+         return;
+     inited = 1;
+ 
+-    /* video codecs */
+-    REGISTER_DECODER(AASC, aasc);
+-    REGISTER_ENCDEC (ASV1, asv1);
+-    REGISTER_ENCDEC (ASV2, asv2);
+-    REGISTER_DECODER(AVS, avs);
+-    REGISTER_ENCDEC (BMP, bmp);
+-    REGISTER_DECODER(CAVS, cavs);
+-    REGISTER_DECODER(CINEPAK, cinepak);
+-    REGISTER_DECODER(CLJR, cljr);
+-    REGISTER_DECODER(CSCD, cscd);
+-    REGISTER_DECODER(CYUV, cyuv);
+-    REGISTER_DECODER(DCA, dca);
+-    REGISTER_DECODER(DNXHD, dnxhd);
+-    REGISTER_DECODER(DSICINVIDEO, dsicinvideo);
+-    REGISTER_ENCDEC (DVVIDEO, dvvideo);
+-    REGISTER_DECODER(DXA, dxa);
+-    REGISTER_DECODER(EIGHTBPS, eightbps);
+-    REGISTER_ENCDEC (FFV1, ffv1);
+-    REGISTER_ENCDEC (FFVHUFF, ffvhuff);
+-    REGISTER_ENCDEC (FLASHSV, flashsv);
+-    REGISTER_DECODER(FLIC, flic);
+-    REGISTER_ENCDEC (FLV, flv);
+-    REGISTER_DECODER(FOURXM, fourxm);
+-    REGISTER_DECODER(FRAPS, fraps);
+-    REGISTER_ENCDEC (GIF, gif);
+-    REGISTER_ENCDEC (H261, h261);
+-    REGISTER_ENCDEC (H263, h263);
+-    REGISTER_DECODER(H263I, h263i);
+-    REGISTER_ENCODER(H263P, h263p);
+-    REGISTER_DECODER(H264, h264);
+-    REGISTER_ENCDEC (HUFFYUV, huffyuv);
+-    REGISTER_DECODER(IDCIN, idcin);
+-    REGISTER_DECODER(INDEO2, indeo2);
+-    REGISTER_DECODER(INDEO3, indeo3);
+-    REGISTER_DECODER(INTERPLAY_VIDEO, interplay_video);
+-    REGISTER_ENCODER(JPEGLS, jpegls);
+-    REGISTER_DECODER(KMVC, kmvc);
+-    REGISTER_ENCODER(LJPEG, ljpeg);
+-    REGISTER_DECODER(LOCO, loco);
+-    REGISTER_DECODER(MDEC, mdec);
+-    REGISTER_ENCDEC (MJPEG, mjpeg);
+-    REGISTER_DECODER(MJPEGB, mjpegb);
+-    REGISTER_DECODER(MMVIDEO, mmvideo);
+-    REGISTER_DECODER(MPEG_XVMC, mpeg_xvmc);
+-    REGISTER_ENCDEC (MPEG1VIDEO, mpeg1video);
+-    REGISTER_ENCDEC (MPEG2VIDEO, mpeg2video);
+-    REGISTER_ENCDEC (MPEG4, mpeg4);
+-    REGISTER_DECODER(MPEGVIDEO, mpegvideo);
+-    REGISTER_ENCDEC (MSMPEG4V1, msmpeg4v1);
+-    REGISTER_ENCDEC (MSMPEG4V2, msmpeg4v2);
+-    REGISTER_ENCDEC (MSMPEG4V3, msmpeg4v3);
+-    REGISTER_DECODER(MSRLE, msrle);
+-    REGISTER_DECODER(MSVIDEO1, msvideo1);
+-    REGISTER_DECODER(MSZH, mszh);
+-    REGISTER_DECODER(NUV, nuv);
+-    REGISTER_ENCODER(PAM, pam);
+-    REGISTER_ENCODER(PBM, pbm);
+-    REGISTER_ENCODER(PGM, pgm);
+-    REGISTER_ENCODER(PGMYUV, pgmyuv);
+-    REGISTER_ENCDEC (PNG, png);
+-    REGISTER_ENCODER(PPM, ppm);
+-    REGISTER_DECODER(QDRAW, qdraw);
+-    REGISTER_DECODER(QPEG, qpeg);
+-    REGISTER_DECODER(QTRLE, qtrle);
+-    REGISTER_ENCDEC (RAWVIDEO, rawvideo);
+-    REGISTER_DECODER(ROQ, roq);
+-    REGISTER_DECODER(RPZA, rpza);
+-    REGISTER_ENCDEC (RV10, rv10);
+-    REGISTER_ENCDEC (RV20, rv20);
+-    REGISTER_DECODER(SMACKER, smacker);
+-    REGISTER_DECODER(SMC, smc);
+-    REGISTER_ENCDEC (SNOW, snow);
+-    REGISTER_DECODER(SP5X, sp5x);
+-    REGISTER_ENCDEC (SVQ1, svq1);
+-    REGISTER_DECODER(SVQ3, svq3);
+-    REGISTER_ENCDEC (TARGA, targa);
+-    REGISTER_DECODER(THEORA, theora);
+-    REGISTER_DECODER(TIERTEXSEQVIDEO, tiertexseqvideo);
+-    REGISTER_DECODER(TIFF, tiff);
+-    REGISTER_DECODER(TRUEMOTION1, truemotion1);
+-    REGISTER_DECODER(TRUEMOTION2, truemotion2);
+-    REGISTER_DECODER(TSCC, tscc);
+-    REGISTER_DECODER(ULTI, ulti);
+-    REGISTER_DECODER(VC1, vc1);
+-    REGISTER_DECODER(VCR1, vcr1);
+-    REGISTER_DECODER(VMDVIDEO, vmdvideo);
+-    REGISTER_DECODER(VMNC, vmnc);
+-    REGISTER_DECODER(VP3, vp3);
+-    REGISTER_DECODER(VP5, vp5);
+-    REGISTER_DECODER(VP6, vp6);
+-    REGISTER_DECODER(VP6F, vp6f);
+-    REGISTER_DECODER(VQA, vqa);
+-    REGISTER_ENCDEC (WMV1, wmv1);
+-    REGISTER_ENCDEC (WMV2, wmv2);
+-    REGISTER_DECODER(WMV3, wmv3);
+-    REGISTER_DECODER(WNV1, wnv1);
+-    REGISTER_ENCODER(X264, x264);
+-    REGISTER_DECODER(XAN_WC3, xan_wc3);
+-    REGISTER_DECODER(XL, xl);
+-    REGISTER_ENCODER(XVID, xvid);
+-    REGISTER_ENCDEC (ZLIB, zlib);
+-    REGISTER_ENCDEC (ZMBV, zmbv);
+-
+     /* audio codecs */
+-    REGISTER_DECODER(AAC, aac);
+-    REGISTER_DECODER(MPEG4AAC, mpeg4aac);
+-    REGISTER_ENCODER(AC3, ac3);
+-    REGISTER_DECODER(ALAC, alac);
+-    REGISTER_ENCDEC (AMR_NB, amr_nb);
+-    REGISTER_ENCDEC (AMR_WB, amr_wb);
+     REGISTER_DECODER(COOK, cook);
+-    REGISTER_DECODER(DSICINAUDIO, dsicinaudio);
+-    REGISTER_DECODER(DTS, dts);
+-    REGISTER_ENCODER(FAAC, faac);
+-    REGISTER_ENCDEC (FLAC, flac);
+-    REGISTER_DECODER(IMC, imc);
+-    REGISTER_DECODER(LIBA52, liba52);
+-    REGISTER_ENCDEC (LIBGSM, libgsm);
+-    REGISTER_ENCDEC (LIBGSM_MS, libgsm_ms);
+-    REGISTER_ENCODER(LIBTHEORA, libtheora);
+-    REGISTER_DECODER(MACE3, mace3);
+-    REGISTER_DECODER(MACE6, mace6);
+-    REGISTER_ENCDEC (MP2, mp2);
+-    REGISTER_DECODER(MP3, mp3);
+-    REGISTER_DECODER(MP3ADU, mp3adu);
+-    REGISTER_ENCODER(MP3LAME, mp3lame);
+-    REGISTER_DECODER(MP3ON4, mp3on4);
+-    REGISTER_DECODER(MPC7, mpc7);
+-    if (!ENABLE_VORBIS_ENCODER)  REGISTER_ENCODER(OGGVORBIS, oggvorbis);
+-    if (!ENABLE_VORBIS_DECODER)  REGISTER_DECODER(OGGVORBIS, oggvorbis);
+-    REGISTER_DECODER(QDM2, qdm2);
+-    REGISTER_DECODER(RA_144, ra_144);
+-    REGISTER_DECODER(RA_288, ra_288);
+-    REGISTER_DECODER(SHORTEN, shorten);
+-    REGISTER_DECODER(SMACKAUD, smackaud);
+-    REGISTER_ENCDEC (SONIC, sonic);
+-    REGISTER_ENCODER(SONIC_LS, sonic_ls);
+-    REGISTER_DECODER(TRUESPEECH, truespeech);
+-    REGISTER_DECODER(TTA, tta);
+-    REGISTER_DECODER(VMDAUDIO, vmdaudio);
+-    REGISTER_ENCDEC (VORBIS, vorbis);
+-    REGISTER_DECODER(WAVPACK, wavpack);
+-    REGISTER_ENCDEC(WMAV1, wmav1);
+-    REGISTER_ENCDEC(WMAV2, wmav2);
+-    REGISTER_DECODER(WS_SND1, ws_snd1);
+-
+-    /* pcm codecs */
+-    REGISTER_ENCDEC (PCM_ALAW, pcm_alaw);
+-    REGISTER_ENCDEC (PCM_MULAW, pcm_mulaw);
+-    REGISTER_ENCDEC (PCM_S8, pcm_s8);
+-    REGISTER_ENCDEC (PCM_S16BE, pcm_s16be);
+-    REGISTER_ENCDEC (PCM_S16LE, pcm_s16le);
+-    REGISTER_ENCDEC (PCM_S24BE, pcm_s24be);
+-    REGISTER_ENCDEC (PCM_S24DAUD, pcm_s24daud);
+-    REGISTER_ENCDEC (PCM_S24LE, pcm_s24le);
+-    REGISTER_ENCDEC (PCM_S32BE, pcm_s32be);
+-    REGISTER_ENCDEC (PCM_S32LE, pcm_s32le);
+-    REGISTER_ENCDEC (PCM_U8, pcm_u8);
+-    REGISTER_ENCDEC (PCM_U16BE, pcm_u16be);
+-    REGISTER_ENCDEC (PCM_U16LE, pcm_u16le);
+-    REGISTER_ENCDEC (PCM_U24BE, pcm_u24be);
+-    REGISTER_ENCDEC (PCM_U24LE, pcm_u24le);
+-    REGISTER_ENCDEC (PCM_U32BE, pcm_u32be);
+-    REGISTER_ENCDEC (PCM_U32LE, pcm_u32le);
+-
+-    /* dpcm codecs */
+-    REGISTER_DECODER(INTERPLAY_DPCM, interplay_dpcm);
+-    REGISTER_DECODER(ROQ_DPCM, roq_dpcm);
+-    REGISTER_DECODER(SOL_DPCM, sol_dpcm);
+-    REGISTER_DECODER(XAN_DPCM, xan_dpcm);
+-
+-    /* adpcm codecs */
+-    REGISTER_ENCDEC (ADPCM_4XM, adpcm_4xm);
+-    REGISTER_ENCDEC (ADPCM_ADX, adpcm_adx);
+-    REGISTER_ENCDEC (ADPCM_CT, adpcm_ct);
+-    REGISTER_ENCDEC (ADPCM_EA, adpcm_ea);
+-    REGISTER_ENCDEC (ADPCM_G726, adpcm_g726);
+-    REGISTER_ENCDEC (ADPCM_IMA_DK3, adpcm_ima_dk3);
+-    REGISTER_ENCDEC (ADPCM_IMA_DK4, adpcm_ima_dk4);
+-    REGISTER_ENCDEC (ADPCM_IMA_QT, adpcm_ima_qt);
+-    REGISTER_ENCDEC (ADPCM_IMA_SMJPEG, adpcm_ima_smjpeg);
+-    REGISTER_ENCDEC (ADPCM_IMA_WAV, adpcm_ima_wav);
+-    REGISTER_ENCDEC (ADPCM_IMA_WS, adpcm_ima_ws);
+-    REGISTER_ENCDEC (ADPCM_MS, adpcm_ms);
+-    REGISTER_ENCDEC (ADPCM_SBPRO_2, adpcm_sbpro_2);
+-    REGISTER_ENCDEC (ADPCM_SBPRO_3, adpcm_sbpro_3);
+-    REGISTER_ENCDEC (ADPCM_SBPRO_4, adpcm_sbpro_4);
+-    REGISTER_ENCDEC (ADPCM_SWF, adpcm_swf);
+-    REGISTER_ENCDEC (ADPCM_XA, adpcm_xa);
+-    REGISTER_ENCDEC (ADPCM_YAMAHA, adpcm_yamaha);
+-
+-    /* subtitles */
+-    REGISTER_ENCDEC (DVBSUB, dvbsub);
+-    REGISTER_ENCDEC (DVDSUB, dvdsub);
+-
+-    /* parsers */
+-    REGISTER_PARSER (AAC, aac);
+-    REGISTER_PARSER (AC3, ac3);
+-    REGISTER_PARSER (CAVSVIDEO, cavsvideo);
+-    REGISTER_PARSER (DCA, dca);
+-    REGISTER_PARSER (DVBSUB, dvbsub);
+-    REGISTER_PARSER (DVDSUB, dvdsub);
+-    REGISTER_PARSER (H261, h261);
+-    REGISTER_PARSER (H263, h263);
+-    REGISTER_PARSER (H264, h264);
+-    REGISTER_PARSER (MJPEG, mjpeg);
+-    REGISTER_PARSER (MPEG4VIDEO, mpeg4video);
+-    REGISTER_PARSER (MPEGAUDIO, mpegaudio);
+-    REGISTER_PARSER (MPEGVIDEO, mpegvideo);
+-    REGISTER_PARSER (PNM, pnm);
+-    REGISTER_PARSER (VC1, vc1);
++    REGISTER_DECODER(FLAC, flac);
+ 
+-    av_register_bitstream_filter(&dump_extradata_bsf);
+-    av_register_bitstream_filter(&remove_extradata_bsf);
+-    av_register_bitstream_filter(&noise_bsf);
+-    av_register_bitstream_filter(&mp3_header_compress_bsf);
+-    av_register_bitstream_filter(&mp3_header_decompress_bsf);
+-    av_register_bitstream_filter(&mjpega_dump_header_bsf);
+-    av_register_bitstream_filter(&imx_dump_header_bsf);
+ }
+ 
+diff -ubwrN ffmpeg.org/libavcodec/fft.c ffmpeg.vp/libavcodec/fft.c
+--- ffmpeg.org/libavcodec/fft.c	2008-01-07 20:32:23.000000000 +0100
++++ ffmpeg.vp/libavcodec/fft.c	2008-09-01 17:26:08.000000000 +0200
+@@ -24,7 +24,8 @@
+  * FFT/IFFT transforms.
+  */
+ 
+-#include "dsputil.h"
++//#include "dsputil.h"
++#include "glue.h"
+ 
+ /**
+  * The size of the FFT is 2^nbits. If inverse is TRUE, inverse FFT is
+diff -ubwrN ffmpeg.org/libavcodec/glue.h ffmpeg.vp/libavcodec/glue.h
+--- ffmpeg.org/libavcodec/glue.h	1970-01-01 01:00:00.000000000 +0100
++++ ffmpeg.vp/libavcodec/glue.h	2008-09-01 17:25:58.000000000 +0200
+@@ -0,0 +1,60 @@
++#ifndef GLUE_H
++#define GLUE_H
++
++#include <inttypes.h>
++#include <math.h>
++#include <ctype.h>
++#include <string.h>
++
++typedef float FFTSample;
++
++struct MDCTContext;
++
++typedef struct FFTComplex {
++    FFTSample re, im;
++} FFTComplex;
++
++typedef struct FFTContext {
++    int nbits;
++    int inverse;
++    uint16_t *revtab;
++    FFTComplex *exptab;
++    FFTComplex *exptab1; /* only used by SSE code */
++    void (*fft_calc)(struct FFTContext *s, FFTComplex *z);
++    void (*imdct_calc)(struct MDCTContext *s, FFTSample *output,
++                       const FFTSample *input, FFTSample *tmp);
++} FFTContext;
++
++typedef struct MDCTContext {
++    int n;  /* size of MDCT (i.e. number of input data * 2) */
++    int nbits; /* n = 2^nbits */
++    /* pre/post rotation tables */
++    FFTSample *tcos;
++    FFTSample *tsin;
++    FFTContext fft;
++} MDCTContext;
++
++int ff_fft_init(FFTContext *s, int nbits, int inverse);
++void ff_fft_permute(FFTContext *s, FFTComplex *z);
++void ff_fft_calc_c(FFTContext *s, FFTComplex *z);
++void ff_fft_calc_sse(FFTContext *s, FFTComplex *z);
++void ff_fft_calc_3dn(FFTContext *s, FFTComplex *z);
++void ff_fft_calc_3dn2(FFTContext *s, FFTComplex *z);
++void ff_fft_calc_altivec(FFTContext *s, FFTComplex *z);
++static inline void ff_fft_calc(FFTContext *s, FFTComplex *z)
++{
++    s->fft_calc(s, z);
++}
++
++int ff_mdct_init(MDCTContext *s, int nbits, int inverse);
++void ff_imdct_calc(MDCTContext *s, FFTSample *output,
++                const FFTSample *input, FFTSample *tmp);
++void ff_imdct_calc_3dn2(MDCTContext *s, FFTSample *output,
++                        const FFTSample *input, FFTSample *tmp);
++void ff_imdct_calc_sse(MDCTContext *s, FFTSample *output,
++                       const FFTSample *input, FFTSample *tmp);
++void ff_mdct_calc(MDCTContext *s, FFTSample *out,
++               const FFTSample *input, FFTSample *tmp);
++void ff_mdct_end(MDCTContext *s);
++
++#endif
+diff -uwbr ffmpeg/libavcodec/Makefile ffmpeg_patched/libavcodec/Makefile
+--- ffmpeg/libavcodec/Makefile	2008-01-07 20:32:22.000000000 +0100
++++ ffmpeg_patched/libavcodec/Makefile	2008-01-07 20:28:12.000000000 +0100
+@@ -9,40 +9,6 @@
+ OBJS= bitstream.o \
+       utils.o \
+       allcodecs.o \
+-      mpegvideo.o \
+-      jrevdct.o \
+-      jfdctfst.o \
+-      jfdctint.o\
+-      mjpeg.o \
+-      resample.o \
+-      resample2.o \
+-      dsputil.o \
+-      motion_est.o \
+-      imgconvert.o \
+-      mpeg12.o \
+-      mpegaudiodec.o \
+-      simple_idct.o \
+-      ratecontrol.o \
+-      eval.o \
+-      error_resilience.o \
+-      fft.o \
+-      mdct.o \
+-      raw.o \
+-      golomb.o \
+-      cabac.o\
+-      faandct.o \
+-      parser.o \
+-      vp3dsp.o \
+-      h264idct.o \
+-      rangecoder.o \
+-      pnm.o \
+-      h263.o \
+-      msmpeg4.o \
+-      h263dec.o \
+-      opt.o \
+-      bitstream_filter.o \
+-      audioconvert.o \
+-
+ 
+ HEADERS = avcodec.h opt.h
+ 
+@@ -313,10 +279,6 @@
+ 
+ OBJS-$(HAVE_XVMC_ACCEL)                += xvmcvideo.o
+ 
+-ifneq ($(CONFIG_SWSCALER),yes)
+-OBJS += imgresample.o
+-endif
+-
+ # i386 mmx specific stuff
+ ifeq ($(TARGET_MMX),yes)
+ OBJS += i386/fdct_mmx.o \
+diff -ubwrN ffmpeg.org/libavcodec/mdct.c ffmpeg.vp/libavcodec/mdct.c
+--- ffmpeg.org/libavcodec/mdct.c	2008-01-07 20:32:22.000000000 +0100
++++ ffmpeg.vp/libavcodec/mdct.c	2008-09-01 17:26:18.000000000 +0200
+@@ -18,7 +18,8 @@
+  * License along with FFmpeg; if not, write to the Free Software
+  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+  */
+-#include "dsputil.h"
++//#include "dsputil.h"
++#include "glue.h"
+ 
+ /**
+  * @file mdct.c
+diff -uwbr ffmpeg/libavcodec/utils.c ffmpeg_patched/libavcodec/utils.c
+--- ffmpeg/libavcodec/utils.c	2008-01-07 20:32:22.000000000 +0100
++++ ffmpeg_patched/libavcodec/utils.c	2008-01-07 20:22:32.000000000 +0100
+@@ -218,6 +218,8 @@
+ }
+ 
+ int avcodec_default_get_buffer(AVCodecContext *s, AVFrame *pic){
++return -1;
++#if 0
+     int i;
+     int w= s->width;
+     int h= s->height;
+@@ -316,6 +318,7 @@
+     s->internal_buffer_count++;
+ 
+     return 0;
++#endif
+ }
+ 
+ void avcodec_default_release_buffer(AVCodecContext *s, AVFrame *pic){
+@@ -370,8 +373,7 @@
+     if (s->get_buffer(s, pic))
+         return -1;
+     /* Copy image data from old buffer to new buffer */
+-    av_picture_copy((AVPicture*)pic, (AVPicture*)&temp_pic, s->pix_fmt, s->width,
+-             s->height);
++   // av_picture_copy((AVPicture*)pic, (AVPicture*)&temp_pic, s->pix_fmt, s->width, s->height);
+     s->release_buffer(s, &temp_pic); // Release old frame
+     return 0;
+ }
+@@ -744,7 +746,7 @@
+         flags= AV_OPT_FLAG_VIDEO_PARAM;
+     else if(codec_type == CODEC_TYPE_SUBTITLE)
+         flags= AV_OPT_FLAG_SUBTITLE_PARAM;
+-    av_opt_set_defaults2(s, flags, flags);
++//    av_opt_set_defaults2(s, flags, flags);
+ 
+     s->rc_eq= "tex^qComp";
+     s->time_base= (AVRational){0,1};
+@@ -1069,6 +1071,7 @@
+     }
+ 
+     switch(enc->codec_type) {
++#if 0
+     case CODEC_TYPE_VIDEO:
+         snprintf(buf, buf_size,
+                  "Video: %s%s",
+@@ -1095,6 +1098,7 @@
+         }
+         bitrate = enc->bit_rate;
+         break;
++#endif
+     case CODEC_TYPE_AUDIO:
+         snprintf(buf, buf_size,
+                  "Audio: %s",
+@@ -1207,7 +1211,7 @@
+         return;
+     inited = 1;
+ 
+-    dsputil_static_init();
++//    dsputil_static_init();
+     init_crcs();
+ }
+ 
+diff -ubwrN ffmpeg.org/libavcodec/vorbis.c ffmpeg.vp/libavcodec/vorbis.c
+--- ffmpeg.org/libavcodec/vorbis.c	2008-01-07 20:32:23.000000000 +0100
++++ ffmpeg.vp/libavcodec/vorbis.c	2008-09-01 17:42:35.000000000 +0200
+@@ -160,6 +160,77 @@
+     uint_fast32_t exp_bias;
+ } vorbis_context;
+ 
++// stuff stolen from dsputils!
++
++/* a*inverse[b]>>32 == a/b for all 0<=a<=65536 && 2<=b<=255 */
++const uint32_t ff_inverse[256]={
++         0, 4294967295U,2147483648U,1431655766, 1073741824,  858993460,  715827883,  613566757,
++ 536870912,  477218589,  429496730,  390451573,  357913942,  330382100,  306783379,  286331154,
++ 268435456,  252645136,  238609295,  226050911,  214748365,  204522253,  195225787,  186737709,
++ 178956971,  171798692,  165191050,  159072863,  153391690,  148102321,  143165577,  138547333,
++ 134217728,  130150525,  126322568,  122713352,  119304648,  116080198,  113025456,  110127367,
++ 107374183,  104755300,  102261127,   99882961,   97612894,   95443718,   93368855,   91382283,
++  89478486,   87652394,   85899346,   84215046,   82595525,   81037119,   79536432,   78090315,
++  76695845,   75350304,   74051161,   72796056,   71582789,   70409300,   69273667,   68174085,
++  67108864,   66076420,   65075263,   64103990,   63161284,   62245903,   61356676,   60492498,
++  59652324,   58835169,   58040099,   57266231,   56512728,   55778797,   55063684,   54366675,
++  53687092,   53024288,   52377650,   51746594,   51130564,   50529028,   49941481,   49367441,
++  48806447,   48258060,   47721859,   47197443,   46684428,   46182445,   45691142,   45210183,
++  44739243,   44278014,   43826197,   43383509,   42949673,   42524429,   42107523,   41698712,
++  41297763,   40904451,   40518560,   40139882,   39768216,   39403370,   39045158,   38693400,
++  38347923,   38008561,   37675152,   37347542,   37025581,   36709123,   36398028,   36092163,
++  35791395,   35495598,   35204650,   34918434,   34636834,   34359739,   34087043,   33818641,
++  33554432,   33294321,   33038210,   32786010,   32537632,   32292988,   32051995,   31814573,
++  31580642,   31350127,   31122952,   30899046,   30678338,   30460761,   30246249,   30034737,
++  29826162,   29620465,   29417585,   29217465,   29020050,   28825284,   28633116,   28443493,
++  28256364,   28071682,   27889399,   27709467,   27531842,   27356480,   27183338,   27012373,
++  26843546,   26676816,   26512144,   26349493,   26188825,   26030105,   25873297,   25718368,
++  25565282,   25414008,   25264514,   25116768,   24970741,   24826401,   24683721,   24542671,
++  24403224,   24265352,   24129030,   23994231,   23860930,   23729102,   23598722,   23469767,
++  23342214,   23216040,   23091223,   22967740,   22845571,   22724695,   22605092,   22486740,
++  22369622,   22253717,   22139007,   22025474,   21913099,   21801865,   21691755,   21582751,
++  21474837,   21367997,   21262215,   21157475,   21053762,   20951060,   20849356,   20748635,
++  20648882,   20550083,   20452226,   20355296,   20259280,   20164166,   20069941,   19976593,
++  19884108,   19792477,   19701685,   19611723,   19522579,   19434242,   19346700,   19259944,
++  19173962,   19088744,   19004281,   18920561,   18837576,   18755316,   18673771,   18592933,
++  18512791,   18433337,   18354562,   18276457,   18199014,   18122225,   18046082,   17970575,
++  17895698,   17821442,   17747799,   17674763,   17602325,   17530479,   17459217,   17388532,
++  17318417,   17248865,   17179870,   17111424,   17043522,   16976156,   16909321,   16843010,
++};
++
++void ff_float_to_int16_c(int16_t *dst, const float *src, int len){
++    int i;
++    for(i=0; i<len; i++) {
++        int_fast32_t tmp = ((int32_t*)src)[i];
++        if(tmp & 0xf0000){
++            tmp = (0x43c0ffff - tmp)>>31;
++            // is this faster on some gcc/cpu combinations?
++//          if(tmp > 0x43c0ffff) tmp = 0xFFFF;
++//          else                 tmp = 0;
++        }
++        dst[i] = tmp - 0x8000;
++    }
++}
++
++static void vector_fmul_c(float *dst, const float *src, int len){
++    int i;
++    for(i=0; i<len; i++)
++        dst[i] *= src[i];
++}
++
++static void vector_fmul_reverse_c(float *dst, const float *src0, const float *src1, int len){
++    int i;
++    src1 += len-1;
++    for(i=0; i<len; i++)
++        dst[i] = src0[i] * src1[-i];
++}
++
++static void vector_fmul_add_add_c(float *dst, const float *src0, const float *src1, const float *src2, int src3, int len, int step){
++    int i;
++    for(i=0; i<len; i++)
++        dst[i*step] = src0[i] * src1[i] + src2[i] + src3;
++}
++
+ /* Helper functions */
+ 
+ #define BARK(x) \
+@@ -460,7 +531,7 @@
+             }
+ 
+ // Weed out unused vlcs and build codevector vector
+-            codebook_setup->codevectors=(float *)av_mallocz(used_entries*codebook_setup->dimensions * sizeof(float));
++            codebook_setup->codevectors=used_entries ? (float *)av_mallocz(used_entries*codebook_setup->dimensions * sizeof(float)):NULL;
+             for(j=0, i=0;i<entries;++i) {
+                 uint_fast8_t dim=codebook_setup->dimensions;
+ 
+@@ -1042,9 +1113,8 @@
+     int i, j, hdr_type;
+ 
+     vc->avccontext = avccontext;
+-    dsputil_init(&vc->dsp, avccontext);
+ 
+-    if(vc->dsp.float_to_int16 == ff_float_to_int16_c) {
++    if(ff_float_to_int16_c == ff_float_to_int16_c) {
+         vc->add_bias = 385;
+         vc->exp_bias = 0;
+     } else {
+@@ -1140,6 +1210,7 @@
+         if ( book_idx >= vf->num_books ) {
+             av_log( vc->avccontext, AV_LOG_ERROR,
+                     "floor0 dec: booknumber too high!\n" );
++            book_idx= 0;
+             //FIXME: look above
+         }
+         AV_DEBUG( "floor0 dec: booknumber: %u\n", book_idx );
+@@ -1468,7 +1539,7 @@
+                         uint_fast8_t vqclass=classifs[j_times_ptns_to_read+partition_count];
+                         int_fast16_t vqbook=vr->books[vqclass][pass];
+ 
+-                        if (vqbook>=0) {
++                        if (vqbook>=0 && vc->codebooks[vqbook].codevectors) {
+                             uint_fast16_t coffs;
+                             unsigned dim= vc->codebooks[vqbook].dimensions; // not uint_fast8_t: 64bit is slower here on amd64
+                             uint_fast16_t step= dim==1 ? vr->partition_size
+@@ -1667,14 +1738,14 @@
+ 
+         mag=vc->channel_residues+res_chan[mapping->magnitude[i]]*blocksize/2;
+         ang=vc->channel_residues+res_chan[mapping->angle[i]]*blocksize/2;
+-        vc->dsp.vorbis_inverse_coupling(mag, ang, blocksize/2);
++        vorbis_inverse_coupling(mag, ang, blocksize/2);
+     }
+ 
+ // Dotproduct
+ 
+     for(j=0, ch_floor_ptr=vc->channel_floors;j<vc->audio_channels;++j,ch_floor_ptr+=blocksize/2) {
+         ch_res_ptr=vc->channel_residues+res_chan[j]*blocksize/2;
+-        vc->dsp.vector_fmul(ch_floor_ptr, ch_res_ptr, blocksize/2);
++        vector_fmul_c(ch_floor_ptr, ch_res_ptr, blocksize/2);
+     }
+ 
+ // MDCT, overlap/add, save data for next overlapping  FPMATH
+@@ -1699,12 +1770,12 @@
+         if (vc->modes[mode_number].blockflag) {
+             // -- overlap/add
+             if (previous_window) {
+-                vc->dsp.vector_fmul_add_add(ret+j, buf, lwin, saved, vc->add_bias, vc->blocksize[1]/2, step);
++                vector_fmul_add_add_c(ret+j, buf, lwin, saved, vc->add_bias, vc->blocksize[1]/2, step);
+                 retlen=vc->blocksize[1]/2;
+             } else {
+                 int len = (vc->blocksize[1]-vc->blocksize[0])/4;
+                 buf += len;
+-                vc->dsp.vector_fmul_add_add(ret+j, buf, swin, saved, vc->add_bias, vc->blocksize[0]/2, step);
++                vector_fmul_add_add_c(ret+j, buf, swin, saved, vc->add_bias, vc->blocksize[0]/2, step);
+                 k = vc->blocksize[0]/2*step + j;
+                 buf += vc->blocksize[0]/2;
+                 if(vc->exp_bias){
+@@ -1720,14 +1791,14 @@
+             // -- save
+             if (next_window) {
+                 buf += vc->blocksize[1]/2;
+-                vc->dsp.vector_fmul_reverse(saved, buf, lwin, vc->blocksize[1]/2);
++                vector_fmul_reverse_c(saved, buf, lwin, vc->blocksize[1]/2);
+                 saved_start=0;
+             } else {
+                 saved_start=(vc->blocksize[1]-vc->blocksize[0])/4;
+                 buf += vc->blocksize[1]/2;
+                 for(i=0; i<saved_start; i++)
+                     ((uint32_t*)saved)[i] = ((uint32_t*)buf)[i] + vc->exp_bias;
+-                vc->dsp.vector_fmul_reverse(saved+saved_start, buf+saved_start, swin, vc->blocksize[0]/2);
++                vector_fmul_reverse_c(saved+saved_start, buf+saved_start, swin, vc->blocksize[0]/2);
+             }
+         } else {
+             // --overlap/add
+@@ -1738,11 +1809,11 @@
+                 for(k=j, i=0;i<saved_start;++i, k+=step)
+                     ret[k] = saved[i];
+             }
+-            vc->dsp.vector_fmul_add_add(ret+k, buf, swin, saved+saved_start, vc->add_bias, vc->blocksize[0]/2, step);
++            vector_fmul_add_add_c(ret+k, buf, swin, saved+saved_start, vc->add_bias, vc->blocksize[0]/2, step);
+             retlen=saved_start+vc->blocksize[0]/2;
+             // -- save
+             buf += vc->blocksize[0]/2;
+-            vc->dsp.vector_fmul_reverse(saved, buf, swin, vc->blocksize[0]/2);
++            vector_fmul_reverse_c(saved, buf, swin, vc->blocksize[0]/2);
+             saved_start=0;
+         }
+     }
+@@ -1785,7 +1856,7 @@
+ 
+     AV_DEBUG("parsed %d bytes %d bits, returned %d samples (*ch*bits) \n", get_bits_count(gb)/8, get_bits_count(gb)%8, len);
+ 
+-    vc->dsp.float_to_int16(data, vc->ret, len);
++    ff_float_to_int16_c(data, vc->ret, len);
+     *data_size=len*2;
+ 
+     return buf_size ;
+diff -uwbr ffmpeg/Makefile ffmpeg_patched/Makefile
+--- ffmpeg/Makefile	2008-01-07 20:32:24.000000000 +0100
++++ ffmpeg_patched/Makefile	2008-01-07 19:52:21.000000000 +0100
+@@ -54,7 +54,6 @@
+ lib:
+ 	$(MAKE) -C libavutil   all
+ 	$(MAKE) -C libavcodec  all
+-	$(MAKE) -C libavformat all
+ ifeq ($(CONFIG_PP),yes)
+ 	$(MAKE) -C libpostproc all
+ endif
+@@ -130,7 +129,6 @@
+ install-libs:
+ 	$(MAKE) -C libavutil   install-libs
+ 	$(MAKE) -C libavcodec  install-libs
+-	$(MAKE) -C libavformat install-libs
+ ifeq ($(CONFIG_PP),yes)
+ 	$(MAKE) -C libpostproc install-libs
+ endif
+@@ -145,7 +143,6 @@
+ install-headers:
+ 	$(MAKE) -C libavutil   install-headers
+ 	$(MAKE) -C libavcodec  install-headers
+-	$(MAKE) -C libavformat install-headers
+ ifeq ($(CONFIG_PP),yes)
+ 	$(MAKE) -C libpostproc install-headers
+ endif
+@@ -165,13 +162,11 @@
+ uninstall-libs:
+ 	$(MAKE) -C libavutil   uninstall-libs
+ 	$(MAKE) -C libavcodec  uninstall-libs
+-	$(MAKE) -C libavformat uninstall-libs
+ 	$(MAKE) -C libpostproc uninstall-libs
+ 
+ uninstall-headers:
+ 	$(MAKE) -C libavutil   uninstall-headers
+ 	$(MAKE) -C libavcodec  uninstall-headers
+-	$(MAKE) -C libavformat uninstall-headers
+ 	$(MAKE) -C libpostproc uninstall-headers
+ 	-rmdir "$(incdir)"
+ 	-rmdir "$(prefix)/include/postproc"
+@@ -179,7 +174,6 @@
+ depend dep: .depend
+ 	$(MAKE) -C libavutil   depend
+ 	$(MAKE) -C libavcodec  depend
+-	$(MAKE) -C libavformat depend
+ ifeq ($(CONFIG_PP),yes)
+ 	$(MAKE) -C libpostproc depend
+ endif
+@@ -201,7 +195,6 @@
+ clean:
+ 	$(MAKE) -C libavutil   clean
+ 	$(MAKE) -C libavcodec  clean
+-	$(MAKE) -C libavformat clean
+ 	$(MAKE) -C libpostproc clean
+ 	$(MAKE) -C libswscale  clean
+ 	$(MAKE) -C tests       clean
+@@ -213,7 +206,6 @@
+ distclean: clean
+ 	$(MAKE) -C libavutil   distclean
+ 	$(MAKE) -C libavcodec  distclean
+-	$(MAKE) -C libavformat distclean
+ 	$(MAKE) -C libpostproc distclean
+ 	$(MAKE) -C libswscale  distclean
+ 	$(MAKE) -C tests       distclean

@@ -1,0 +1,1 @@
+CFLAGS="-DDEBUG -DDBC -O0 -g -ggdb" ./autogen.sh --with-platform=none --disable-gnome --with-html-component=none --disable-uigtk --disable-gtk-doc --disable-demoui --with-ssl=openssl --prefix=/usr --enable-shared --disable-static --enable-ipv6=no

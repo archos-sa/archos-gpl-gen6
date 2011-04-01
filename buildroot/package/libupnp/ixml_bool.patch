@@ -1,0 +1,100 @@
+--- libupnp-1.4.4/ixml/inc/ixml.h	2006-07-31 07:33:05.000000000 +0200
++++ /usr/local/include/upnp/ixml.h	2007-01-11 19:26:24.000000000 +0100
+@@ -52,7 +52,7 @@
+  #define EXPORT_SPEC
+ #endif
+ 
+-typedef int BOOL;
++typedef int IXML_BOOL;
+ 
+ #define DOMString   char *
+ 
+@@ -170,7 +170,7 @@
+     DOMString       namespaceURI;
+     DOMString       prefix;
+     DOMString       localName;
+-    BOOL            readOnly;
++    IXML_BOOL            readOnly;
+ 
+     Nodeptr         parentNode;
+     Nodeptr         firstChild;
+@@ -201,7 +201,7 @@
+ typedef struct _IXML_ATTR
+ {
+     IXML_Node   n;
+-    BOOL        specified;
++    IXML_BOOL        specified;
+     IXML_Element *ownerElement;
+ } IXML_Attr;
+ 
+@@ -591,7 +591,7 @@
+    *                 otherwise {\tt FALSE}.
+    */
+ 
+-EXPORT_SPEC BOOL    
++EXPORT_SPEC IXML_BOOL    
+ ixmlNode_hasChildNodes(IXML_Node *nodeptr  
+ 		         /** The {\bf Node} to query for children. */
+                    );
+@@ -607,7 +607,7 @@
+ EXPORT_SPEC IXML_Node*   
+ ixmlNode_cloneNode(IXML_Node *nodeptr,  
+ 		     /** The {\bf Node} to clone.  */
+-                   BOOL deep
++                   IXML_BOOL deep
+ 		     /** {\tt TRUE} to clone the subtree also or {\tt FALSE} 
+ 		         to clone only {\bf nodeptr}. */
+                   );
+@@ -615,11 +615,11 @@
+   /** Queries whether this {\bf Node} has attributes.  Note that only 
+    *  {\bf Element} nodes have attributes.
+    *
+-   *  @return [BOOL] {\tt TRUE} if the {\bf Node} has attributes otherwise 
++   *  @return [IXML_BOOL] {\tt TRUE} if the {\bf Node} has attributes otherwise 
+    *                 {\tt FALSE}.
+    */
+ 
+-EXPORT_SPEC BOOL    
++EXPORT_SPEC IXML_BOOL    
+ ixmlNode_hasAttributes(IXML_Node *node  
+ 		         /** The {\bf Node} to query for attributes. */
+                       );
+@@ -1120,7 +1120,7 @@
+ 		          /** The {\bf Document} into which to import. */
+                         IXML_Node* importNode,  
+ 			  /** The {\bf Node} to import. */
+-                        BOOL deep,         
++                        IXML_BOOL deep,         
+ 			  /** {\tt TRUE} to import all children of {\bf 
+ 			      importNode} or {\tt FALSE} to import only the 
+ 			      root node. */
+@@ -1452,12 +1452,12 @@
+   /** Queries whether the {\bf Element} has an attribute with the given name
+    *  or a default value.
+    *
+-   *  @return [BOOL] {\tt TRUE} if the {\bf Element} has an attribute with 
++   *  @return [IXML_BOOL] {\tt TRUE} if the {\bf Element} has an attribute with 
+    *                 this name or has a default value for that attribute, 
+    *                 otherwise {\tt FALSE}.
+    */
+ 
+-EXPORT_SPEC BOOL        
++EXPORT_SPEC IXML_BOOL        
+ ixmlElement_hasAttribute(IXML_Element* element, 
+ 		           /** The {\bf Element} on which to check for an 
+ 			       attribute. */
+@@ -1468,12 +1468,12 @@
+   /** Queries whether the {\bf Element} has an attribute with the given
+    *  local name and namespace URI or has a default value for that attribute.
+    *
+-   *  @return [BOOL] {\tt TRUE} if the {\bf Element} has an attribute with 
++   *  @return [IXML_BOOL] {\tt TRUE} if the {\bf Element} has an attribute with 
+    *                 the given namespace and local name or has a default 
+    *                 value for that attribute, otherwise {\tt FALSE}.
+    */
+ 
+-EXPORT_SPEC BOOL        
++EXPORT_SPEC IXML_BOOL        
+ ixmlElement_hasAttributeNS(IXML_Element* element,       
+ 		             /** The {\bf Element} on which to check for the 
+ 			         attribute. */

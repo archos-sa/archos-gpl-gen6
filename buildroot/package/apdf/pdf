@@ -1,0 +1,10 @@
+#!/bin/sh
+# Helper script to define needed environment vars and pass some arguments to
+# apdf
+export QTDIR=/opt/usr
+export QWS_MOUSE_PROTO=QVFbMouse
+
+# This is here because /opt/usr/lib is not in /etc/ld.so.conf, it should be
+# moved there IMHO
+export LD_LIBRARY_PATH=/opt/usr/lib
+exec /opt/usr/bin/apdf -qws -noswcursor "$@"

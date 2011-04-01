@@ -1,0 +1,70 @@
+--- libupnp-1.4.4/upnp/src/genlib/net/http/httpreadwrite.c	2007-06-29 11:39:16.000000000 +0200
++++ /tmp/httpreadwrite.c	2007-06-29 13:28:57.000000000 +0200
+@@ -39,6 +39,7 @@
+ 
+ #include <assert.h>
+ #include <stdarg.h>
++#include <sys/poll.h>
+ #ifndef UPNP_USE_BCBPP
+ #ifndef UPNP_USE_MSVCPP
+  #include <inttypes.h>
+@@ -158,6 +159,11 @@
+               OUT uri_type * url )
+ {
+     int connfd;
++    int flags;
++    struct pollfd pfd[1];
++    int connected = 0;
++    int cs = 0;
++    int timeout = 5000; // 5sec
+ 
+     http_FixUrl( destination_url, url );
+ 
+@@ -166,6 +172,38 @@
+         return UPNP_E_OUTOF_SOCKET;
+     }
+ 
++	if ((flags = fcntl(connfd, F_GETFL, 0)) == -1)
++	        flags = 0;
++	fcntl(connfd, F_SETFL, flags | O_NONBLOCK);
++	
++	pfd[0].fd = connfd;
++	pfd[0].events = POLLOUT;
++
++	cs = connect(connfd, ( struct sockaddr * )&url->hostport.IPv4address, sizeof( struct sockaddr_in ));
++	
++	if (cs == -1 && errno == EINPROGRESS) {
++		if (poll(pfd, 1, timeout) == 1) {
++			if (pfd[0].revents & POLLOUT == POLLOUT) {
++				connected = 1;
++				//write(2, "HTTP CONNECT connected via poll\n", 31);
++			}
++		}
++	}
++	else if (cs == 0) {
++		//write(2, "HTTP CONNECT connected without poll\n", 35);
++		connected = 1;
++	}
++
++	if (!connected) {
++		shutdown( connfd, SD_BOTH );
++	        UpnpCloseSocket( connfd );
++	       	 return UPNP_E_SOCKET_CONNECT;
++	}
++	
++	// reset old flags
++	fcntl(connfd, F_SETFL, flags);
++	
++/*
+     if( connect( connfd, ( struct sockaddr * )&url->hostport.IPv4address,
+                  sizeof( struct sockaddr_in ) ) == -1 ) {
+ #ifdef WIN32
+@@ -178,7 +216,7 @@
+         UpnpCloseSocket( connfd );
+         return UPNP_E_SOCKET_CONNECT;
+     }
+-
++*/
+     return connfd;
+ }
+ 
